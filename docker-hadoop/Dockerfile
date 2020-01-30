@@ -1,4 +1,4 @@
-FROM hoult/centos-ssh-jdk
+FROM hoult/centos7:jdk8-ssh
 MAINTAINER hulichao <whu_hlc@163.com>
 LABEL hadoop.version="2.7.7"
 RUN yum -y install which && yum clean all
