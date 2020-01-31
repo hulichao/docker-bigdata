@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4d1e8997-89d4-4fb5-8910-698a1be7dad6" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/docker-compose-hive.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-hive/conf/hive-site.xml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-hive/conf/hive-site.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,6 +36,10 @@
     <ExecCommand>
       <option name="command" value="/bin/bash" />
       <option name="imageId" value="sha256:114b1a964a8a4086353e3098ffebcdf9f75c29f0b917d204efc0984399b1602d" />
+    </ExecCommand>
+    <ExecCommand>
+      <option name="command" value="/bin/bash" />
+      <option name="imageId" value="sha256:bc2b35381cb755d84867161865cf5b9dade5e060485ff4331985c66acc7ad79e" />
     </ExecCommand>
     <ExecCommand>
       <option name="command" value="/bin/bash" />
@@ -99,6 +102,18 @@
                 <item name="docker-bigdata" type="9fbbdea:ServiceModel$ServiceNode" />
                 <item name="hadoop-master" type="9fbbdea:ServiceModel$ServiceNode" />
               </path>
+              <path>
+                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+                <item name="Docker" type="9fbbdea:ServiceModel$ServiceNode" />
+                <item name="docker-bigdata" type="9fbbdea:ServiceModel$ServiceNode" />
+                <item name="hadoop-slave1" type="9fbbdea:ServiceModel$ServiceNode" />
+              </path>
+              <path>
+                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+                <item name="Docker" type="9fbbdea:ServiceModel$ServiceNode" />
+                <item name="docker-bigdata" type="9fbbdea:ServiceModel$ServiceNode" />
+                <item name="hadoop-slave2" type="9fbbdea:ServiceModel$ServiceNode" />
+              </path>
             </expand>
             <select />
           </treeState>
@@ -117,7 +132,7 @@
       <option name="presentableId" value="Default" />
       <updated>1580385233905</updated>
       <workItem from="1580385236828" duration="2670000" />
-      <workItem from="1580400359044" duration="6751000" />
+      <workItem from="1580400359044" duration="8971000" />
     </task>
     <servers />
   </component>
