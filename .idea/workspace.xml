@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4d1e8997-89d4-4fb5-8910-698a1be7dad6" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/docker-compose-mysql.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docker-mysql/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.sh" beforeDir="false" afterPath="$PROJECT_DIR$/build.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/centos-ssh-jdk/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/centos7/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-hadoop/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/docker-hadoop/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose-mysql.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose-mysql.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,7 +20,12 @@
     <option name="HIDDEN_KINDS">
       <set />
     </option>
-    <expand />
+    <expand>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="localhost-mysql" type="feb32156:DbDataSourceImpl" />
+      </path>
+    </expand>
     <select />
   </component>
   <component name="DockerExecCommand">
@@ -32,6 +33,13 @@
       <option name="command" value="/bin/bash" />
       <option name="imageId" value="sha256:114b1a964a8a4086353e3098ffebcdf9f75c29f0b917d204efc0984399b1602d" />
     </ExecCommand>
+    <ExecCommand>
+      <option name="command" value="/bin/bash" />
+      <option name="imageId" value="sha256:c0c594189697981ed95490f34769acaa397f3d9ee687e402fff555d99adb21ae" />
+    </ExecCommand>
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="docker-bigdata" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -64,6 +72,7 @@
     <option name="viewStates">
       <list>
         <serviceView>
+          <option name="contentProportion" value="0.18501171" />
           <treeState>
             <expand>
               <path>
@@ -72,17 +81,7 @@
               </path>
               <path>
                 <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-                <item name="root:localhost-mysql" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-                <item name="com.intellij.database.console.session.MessageBusSession@43312c3f" type="9fbbdea:ServiceModel$ServiceNode" />
-              </path>
-              <path>
-                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
                 <item name="Docker" type="9fbbdea:ServiceModel$ServiceNode" />
-              </path>
-              <path>
-                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-                <item name="Docker" type="9fbbdea:ServiceModel$ServiceNode" />
-                <item name="Images" type="9fbbdea:ServiceModel$ServiceNode" />
               </path>
             </expand>
             <select />
@@ -102,7 +101,7 @@
       <option name="presentableId" value="Default" />
       <updated>1580385233905</updated>
       <workItem from="1580385236828" duration="2670000" />
-      <workItem from="1580400359044" duration="2653000" />
+      <workItem from="1580400359044" duration="5665000" />
     </task>
     <servers />
   </component>
@@ -118,30 +117,30 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="517" y="198" width="320" height="345" key="#Docker_Registry/0.0.1366.768@0.0.1366.768" timestamp="1580402248057" />
-    <state x="278" y="32" width="804" height="677" key="#Push_Image" timestamp="1580402603038">
+    <state x="278" y="32" width="804" height="677" key="#Push_Image" timestamp="1580403339467">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="278" y="32" width="804" height="677" key="#Push_Image/0.0.1366.768@0.0.1366.768" timestamp="1580402603038" />
-    <state x="278" y="32" width="804" height="677" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1580402039030">
+    <state x="278" y="32" width="804" height="677" key="#Push_Image/0.0.1366.768@0.0.1366.768" timestamp="1580403339467" />
+    <state x="278" y="32" width="804" height="677" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1580405294393">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="278" y="32" width="804" height="677" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.768@0.0.1366.768" timestamp="1580402039030" />
-    <state width="903" height="194" key="GridCell.Tab.0.bottom" timestamp="1580402204491">
+    <state x="278" y="32" width="804" height="677" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.768@0.0.1366.768" timestamp="1580405294393" />
+    <state width="903" height="194" key="GridCell.Tab.0.bottom" timestamp="1580403148276">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="903" height="194" key="GridCell.Tab.0.bottom/0.0.1366.768@0.0.1366.768" timestamp="1580402204491" />
-    <state width="903" height="194" key="GridCell.Tab.0.center" timestamp="1580402204490">
+    <state width="903" height="194" key="GridCell.Tab.0.bottom/0.0.1366.768@0.0.1366.768" timestamp="1580403148276" />
+    <state width="903" height="194" key="GridCell.Tab.0.center" timestamp="1580403148276">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="903" height="194" key="GridCell.Tab.0.center/0.0.1366.768@0.0.1366.768" timestamp="1580402204490" />
-    <state width="903" height="194" key="GridCell.Tab.0.left" timestamp="1580402204490">
+    <state width="903" height="194" key="GridCell.Tab.0.center/0.0.1366.768@0.0.1366.768" timestamp="1580403148276" />
+    <state width="903" height="194" key="GridCell.Tab.0.left" timestamp="1580403148275">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="903" height="194" key="GridCell.Tab.0.left/0.0.1366.768@0.0.1366.768" timestamp="1580402204490" />
-    <state width="903" height="194" key="GridCell.Tab.0.right" timestamp="1580402204491">
+    <state width="903" height="194" key="GridCell.Tab.0.left/0.0.1366.768@0.0.1366.768" timestamp="1580403148275" />
+    <state width="903" height="194" key="GridCell.Tab.0.right" timestamp="1580403148276">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="903" height="194" key="GridCell.Tab.0.right/0.0.1366.768@0.0.1366.768" timestamp="1580402204491" />
+    <state width="903" height="194" key="GridCell.Tab.0.right/0.0.1366.768@0.0.1366.768" timestamp="1580403148276" />
     <state width="225" height="500" key="HiddenNamespacesPopup" timestamp="1580401842010">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
