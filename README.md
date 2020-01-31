@@ -14,6 +14,7 @@
 * hoult/centos7：jdk8-ssh        openssh、java8，基础镜像
 * hoult/docker-hadoop:2.7.7-jdk8    hadoop基础镜像
 * hoult/docker-hive:1.2.2   基于hadoop基础镜像
+* hoult/docker-spark:2.4.4  基于hive的镜像
 * hoult/mysql:5.7  mysql5.7版本
 
 ##### 3、QuickStart
