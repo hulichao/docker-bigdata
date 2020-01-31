@@ -1,0 +1,33 @@
+hadoop-slave1:
+   image: hoult/docker-spark:2.4.4
+   container_name: hadoop-slave1
+   volumes:
+     - ./docker-hadoop/conf:/usr/local/hadoop/etc/hadoop
+     - ./docker-hive/conf:/usr/local/hive/conf
+     - ./docker-spark/conf:/usr/local/spark/conf
+   net: zoo
+hadoop-slave2:
+   image: hoult/docker-spark:2.4.4
+   container_name: hadoop-slave2
+   volumes:
+     - ./docker-hadoop/conf:/usr/local/hadoop/etc/hadoop
+     - ./docker-hive/conf:/usr/local/hive/conf
+     - ./docker-spark/conf:/usr/local/spark/conf
+   net: zoo
+hadoop-master:
+   image: hoult/docker-spark:2.4.4
+   container_name: hadoop-master
+   volumes:
+     - ./docker-hadoop/conf:/usr/local/hadoop/etc/hadoop
+     - ./docker-hive/conf:/usr/local/hive/conf
+     - ./docker-spark/conf:/usr/local/spark/conf
+   net: zoo
+   ports:
+     - "50070:50070"
+     - "9083:9083"
+     - "8088:8088"
+     - "8080:8080"
+     - "8042:8042"
+   links:
+     - hadoop-slave1
+     - hadoop-slave2
