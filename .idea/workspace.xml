@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4d1e8997-89d4-4fb5-8910-698a1be7dad6" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/docker-compose-mysql.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose-mysql.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker-compose-hive.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-hive/conf/hive-site.xml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-hive/conf/hive-site.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,6 +30,10 @@
     <select />
   </component>
   <component name="DockerExecCommand">
+    <ExecCommand>
+      <option name="command" value="/bin/bash" />
+      <option name="imageId" value="sha256:0f7a44d18d814483f972971229fb8162cd30f062a7e68241b2f3022897dd49d2" />
+    </ExecCommand>
     <ExecCommand>
       <option name="command" value="/bin/bash" />
       <option name="imageId" value="sha256:114b1a964a8a4086353e3098ffebcdf9f75c29f0b917d204efc0984399b1602d" />
@@ -83,6 +88,17 @@
                 <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
                 <item name="Docker" type="9fbbdea:ServiceModel$ServiceNode" />
               </path>
+              <path>
+                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+                <item name="Docker" type="9fbbdea:ServiceModel$ServiceNode" />
+                <item name="docker-bigdata" type="9fbbdea:ServiceModel$ServiceNode" />
+              </path>
+              <path>
+                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+                <item name="Docker" type="9fbbdea:ServiceModel$ServiceNode" />
+                <item name="docker-bigdata" type="9fbbdea:ServiceModel$ServiceNode" />
+                <item name="hadoop-master" type="9fbbdea:ServiceModel$ServiceNode" />
+              </path>
             </expand>
             <select />
           </treeState>
@@ -101,7 +117,7 @@
       <option name="presentableId" value="Default" />
       <updated>1580385233905</updated>
       <workItem from="1580385236828" duration="2670000" />
-      <workItem from="1580400359044" duration="5665000" />
+      <workItem from="1580400359044" duration="6751000" />
     </task>
     <servers />
   </component>
@@ -153,5 +169,9 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="371" y="198" key="com.intellij.ide.util.TipDialog/0.0.1366.768@0.0.1366.768" timestamp="1580400392528" />
+    <state x="357" y="88" width="642" height="536" key="find.popup" timestamp="1580458079548">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state x="357" y="88" width="642" height="536" key="find.popup/0.0.1366.768@0.0.1366.768" timestamp="1580458079548" />
   </component>
 </project>
