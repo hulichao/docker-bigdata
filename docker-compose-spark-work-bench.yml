@@ -1,0 +1,6 @@
+spark-master:
+   image: hoult/docker-spark-workbench
+   container_name: spark-master
+   net: zoo
+   ports:
+     - "4040:4040"
