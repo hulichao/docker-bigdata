@@ -22,8 +22,12 @@ RUN cp /root/.ssh/id_rsa.pub /root/.ssh/authorized_keys
 
 # 设置sshd
 #RUN sshd-keygen
-RUN sed -i "s/#UsePrivilegeSeparation.*/UsePrivilegeSeparation no/g" /etc/ssh/sshd_config
-RUN sed -i "s/UsePAM.*/UsePAM no/g" /etc/ssh/sshd_config
+RUN sed -i "s/#UsePrivilegeSeparation.*/UsePrivilegeSeparation no/g" /etc/ssh/sshd_config && \
+sed -i "s/UsePAM.*/UsePAM no/g" /etc/ssh/sshd_config && \
+sed -i "s/#PermitEmptyPasswords/PermitEmptyPasswords/g" /etc/ssh/sshd_config && \
+sed -i "s/#PermitRootLogin/PermitRootLogin/g" /etc/ssh/sshd_config && \
+echo " StrictHostKeyChecking no" >> /etc/ssh/ssh_config && \
+echo " UserKnownHostsFile /dev/null" >> /etc/ssh/ssh_config
 
 RUN mkdir /var/run/sshd
 

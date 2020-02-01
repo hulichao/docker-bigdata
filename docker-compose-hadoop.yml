@@ -1,17 +1,17 @@
 hadoop-slave1:
-   image: hoult/docker-hadoop
+   image: hoult/docker-hadoop:2.7.7-jdk8
    container_name: hadoop-slave1
    volumes:
      - ./docker-hadoop/conf:/usr/local/hadoop/etc/hadoop
    net: zoo
 hadoop-slave2:
-   image: hoult/docker-hadoop
+   image: hoult/docker-hadoop:2.7.7-jdk8
    container_name: hadoop-slave2
    volumes:
      - ./docker-hadoop/conf:/usr/local/hadoop/etc/hadoop
    net: zoo
 hadoop-master:
-   image: hoult/docker-hadoop
+   image: hoult/docker-hadoop:2.7.7-jdk8
    container_name: hadoop-master
    volumes:
      - ./docker-hadoop/conf:/usr/local/hadoop/etc/hadoop
