@@ -46,5 +46,4 @@ hadoop-slave2: nodemanager running as process 128. Stop it first.
 ## 待修复问题
 1. 免密登录
 2. spark-sql还用不了
-3. 浏览器目录权限的问题
-4. hive 默认文件file改为集群
+3. hive 默认文件file改为集群
