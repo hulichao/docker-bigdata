@@ -1,5 +1,5 @@
 # docker-bigdata
->使用docker构建大数据开发环境，包括zk, kafka, hadoop, hive, spark, hbase等.
+>使用docker构建大数据开发环境，包括zk, es, kafka, hadoop, hive, spark, hbase等.
 
 ## 镜像相关介绍
 ### 1、镜像环境
@@ -10,6 +10,7 @@
 * python : 2.7.5
 * hive: 1.2.2
 * spark: 2.4.4
+* elasticsearch: 6.5.4
 * mysql: 5.7
 
 ### 2、镜像描述
@@ -19,6 +20,20 @@
 * hoult/docker-hive:1.2.2   基于hadoop基础镜像
 * hoult/docker-spark:2.4.4  基于hive的镜像
 * hoult/mysql:5.7  mysql5.7版本
+* hoult/docker-spark-workbench spark的单机环境（仅仅为了测试环境）
+* hoult/docker-elasticsearch:6.5.4
+
+**镜像继承关系图：**
+
+```mermaid
+graph TD 
+   hoult/centos7:jdk8-ssh --> hoult/docker-hadoop:2.7.7-jdk8
+   hoult/docker-hadoop:2.7.7-jdk8 --> hoult/docker-hive:1.2.2
+   hoult/docker-hive:1.2.2 --> hoult/docker-spark:2.4.4
+   hoult/mysql:5.7
+   hoult/docker-spark-workbench:latest
+   hoult/docker-elasticsearch:6.5.4
+```
 
 ### 3、QuickStart
 1. /usr/local/hadoop/bin/hdfs namenode -format
@@ -32,3 +47,4 @@ metastore服务默认关闭，启动任意一个镜像都需要先format和启�
 ## 待修复问题
 1. spark-sql还用不了
 2. hive 默认文件file改为集群
+3. elasticsearch 单机模式ok,集群模式还有待修复
