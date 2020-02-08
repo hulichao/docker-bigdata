@@ -69,5 +69,5 @@ networks:
 #  docker network create es-network
 #  docker run -d --name elasticsearch --net es-network -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" hoult/docker-elasticsearch:6.5.4
 #  启动kibana来管理
-  ## `。查看ip  docker inspect elasticsearch | grep IPAddress
-  docker run --name kibana -e ELASTICSEARCH_HOSTS=http://172.20.0.2:9200 --net es-network  -e SERVER_PORT=5601  -e SERVER_HOST=0.0.0.0 -p 5601:5601 -d kibana:6.5.4
+  ## 。查看ip  docker inspect elasticsearch | grep IPAddress
+#  docker run --name kibana -e ELASTICSEARCH_HOSTS=http://172.20.0.2:9200 --net es-network  -e SERVER_PORT=5601  -e SERVER_HOST=0.0.0.0 -p 5601:5601 -d kibana:6.5.4
