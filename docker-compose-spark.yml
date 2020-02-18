@@ -21,6 +21,8 @@ hadoop-master:
      - ./docker-hadoop/conf:/usr/local/hadoop/etc/hadoop
      - ./docker-hive/conf:/usr/local/hive/conf
      - ./docker-spark/conf:/usr/local/spark/conf
+     #spark input
+     - ~/DockData/spark/input:/usr/local/spark/input
    net: zoo
    ports:
      - "50070:50070"
