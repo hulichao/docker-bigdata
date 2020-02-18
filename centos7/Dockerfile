@@ -5,6 +5,9 @@ python.version="2.7.5" \
 contains.ssh="true"
 # root password
 RUN echo 'root:123456' | chpasswd
+ENV LANG en_US.UTF-8
+ENV LANGUAGE en_US:en
+ENV LC_ALL en_US.UTF-8
 
 # 为解决Header V3 RSA/SHA256 Signature, key ID f4a80eb5: NOKEY问题
 RUN rpm --import /etc/pki/rpm-gpg/RPM*
