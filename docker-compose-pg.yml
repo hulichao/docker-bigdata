@@ -1,0 +1,20 @@
+version: '3'
+services:
+  mydb:
+    image: postgres:11
+    container_name: pg
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_DB: database
+      POSTGRES_PASSWORD: 123456
+    ports:
+      - "5432:5432"
+    restart:
+      always
+volumes:
+  db-data:
+networks:
+  postgresnetwork000:
+    driver: 'local'
