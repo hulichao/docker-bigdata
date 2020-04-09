@@ -18,6 +18,7 @@ hadoop-master:
    volumes:
      - ./docker-hadoop/conf:/usr/local/hadoop/etc/hadoop
      - ./docker-hive/conf:/usr/local/hive/conf
+     - ~/DockData/hive/input:/input
    net: zoo
    ports:
      - "50070:50070"
