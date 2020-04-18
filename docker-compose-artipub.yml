@@ -1,0 +1,17 @@
+version: '3.3'
+services:
+  app:
+    image: "tikazyq/artipub:latest"
+    environment:
+      MONGO_HOST: "mongo"
+      ARTIPUB_API_ADDRESS: "http://localhost:3000" # 后端 API 地址，如果安装地址不在本机，请修改为协议 + 服务器 IP 地址 + 端口号（默认为 3000）
+    ports:
+      - "8000:8000" # frontend
+      - "3000:3000" # backend
+    depends_on:
+      - mongo
+  mongo:
+    image: mongo:latest
+    restart: always
+    ports:
+      - "27017:27017"
