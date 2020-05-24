@@ -41,7 +41,7 @@ graph TD
 3. hive --service metastore
 4. spark-sql -Phive -Phive-thriftserver (启动spark时候的conf 里面的hive-site.xml 会覆盖hive原本的配置属性)
 
-**注意**：hoult/docker-hadoop:2.7.7-jdk8, hoult/docker-hive:1.2.2, hoult/docker-spark:2.4.4只可以按需求启动其中的一个，hoult/mysql:5.7是hive的元数据库，如果用到hive，需要先启动此镜像容器
+**注意**：hoult/docker-hadoop:2.7.7-jdk8, hoult/docker-hive:1.2.2, hoult/docker-spark:2.4.4只可以按需求启动其中的一个，hoult/mysql:5.7是hive的元数据库，如果用到hive，需要先启动此镜像容器(或者后启动，重启集群)
 metastore服务默认关闭，启动任意一个镜像都需要先format和启动hadoop集群.
 
 ## 待修复问题
