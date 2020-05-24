@@ -13,9 +13,8 @@ ENV KAFKA_PORT=9092\
 	KAFKA_DATA_DIR=/data/kafka
 
 RUN echo "Asia/shanghai" > /etc/timezone \
-    && wget -P /opt https://mirrors.tuna.tsinghua.edu.cn/apache/kafka/2.4.1/kafka_2.11-2.4.1.tgz
+    && wget -P /opt https://mirrors.tuna.tsinghua.edu.cn/apache/kafka/2.4.1/kafka_2.11-2.4.1.tgz \
 	&& cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
-	&& yum -y install java \
 	&& mkdir -p $KAFKA_DATA_DIR \
 	&& mv /opt/kafka_2.11-2.4.1 $KAFKA_DIR
 
