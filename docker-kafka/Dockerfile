@@ -14,6 +14,7 @@ ENV KAFKA_PORT=9092\
 
 RUN echo "Asia/shanghai" > /etc/timezone \
     && wget -P /opt https://mirrors.tuna.tsinghua.edu.cn/apache/kafka/2.4.1/kafka_2.11-2.4.1.tgz \
+    && tar -zxvf /opt/kafka_2.11-2.4.1.tgz -C /opt \
 	&& cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
 	&& mkdir -p $KAFKA_DATA_DIR \
 	&& mv /opt/kafka_2.11-2.4.1 $KAFKA_DIR
