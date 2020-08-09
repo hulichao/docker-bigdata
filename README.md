@@ -1,5 +1,5 @@
 # docker-bigdata
->使用docker构建大数据开发环境，包括zk, es, kafka, hadoop, hive, spark, hbase等.
+>使用docker构建大数据开发环境，包括hadoop, hive,  spark, hbase, zk, es, kafka, 等.
 
 ## 镜像相关介绍
 ### 1、镜像环境
