@@ -3,7 +3,7 @@
 <!-- Site specific YARN configuration properties -->
 <property>
 <name>yarn.resourcemanager.hostname</name>
-<value>hadoop-master</value>
+<value>linux123</value>
 </property>
 
 <!--是否启动一个线程检查每个任务正使用的物理内存量，如果任务超出分配值，则直接将其杀掉，默认是true -->
@@ -22,11 +22,12 @@
 <value>0.0.0.0</value>
 </property>
 
+<!-- Reducer获取数据的方式 -->
 <property>
-<name>yarn.nodemanager.aux-services</name>
-<value>mapreduce_shuffle</value> 
+    <name>yarn.nodemanager.aux-services</name>
+    <value>mapreduce_shuffle</value>
 </property>
- 
+
 <property>
 <name>yarn.nodemanager.aux-services.mapreduce_shuffle.class</name>
 <value>org.apache.hadoop.mapred.ShuffleHandler</value>

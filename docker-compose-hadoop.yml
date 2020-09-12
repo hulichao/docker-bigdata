@@ -1,24 +1,39 @@
-hadoop-slave1:
-   image: hoult/docker-hadoop:2.7.7-jdk8
-   container_name: hadoop-slave1
-   volumes:
-     - ./docker-hadoop/conf:/usr/local/hadoop/etc/hadoop
-   net: zoo
-hadoop-slave2:
-   image: hoult/docker-hadoop:2.7.7-jdk8
-   container_name: hadoop-slave2
-   volumes:
-     - ./docker-hadoop/conf:/usr/local/hadoop/etc/hadoop
-   net: zoo
-hadoop-master:
-   image: hoult/docker-hadoop:2.7.7-jdk8
-   container_name: hadoop-master
-   volumes:
-     - ./docker-hadoop/conf:/usr/local/hadoop/etc/hadoop
-   net: zoo
-   ports:
-     - "50070:50070"
-     - "8088:8088"
-   links:
-     - hadoop-slave1
-     - hadoop-slave2
+version: '2'
+services:
+  linux121:
+    image: hoult/docker-hadoop:2.7.7-jdk8
+    container_name: linux121
+    working_dir: /opt/hoult/servers
+    volumes:
+      - ./docker-hadoop/conf:/opt/hoult/servers/hadoop-2.9.2/etc/hadoop
+    networks:
+      zoo:
+        ipv4_address: 172.18.0.2
+  linux122:
+    image: hoult/docker-hadoop:2.7.7-jdk8
+    working_dir: /opt/hoult/servers
+    container_name: linux122
+    volumes:
+      - ./docker-hadoop/conf:/opt/hoult/servers/hadoop-2.9.2/etc/hadoop
+    networks:
+      zoo:
+        ipv4_address: 172.18.0.3
+  linux123:
+    image: hoult/docker-hadoop:2.7.7-jdk8
+    working_dir: /opt/hoult/servers
+    container_name: linux123
+    volumes:
+      - ./docker-hadoop/conf:/opt/hoult/servers/hadoop-2.9.2/etc/hadoop
+    networks:
+      zoo:
+        ipv4_address: 172.18.0.4
+    ports:
+      - "50070:50070"
+      - "8088:8088"
+
+networks:
+  zoo:
+    ipam:
+      config:
+        - subnet: 172.18.0.0/16
+          gateway: 172.18.0.1
