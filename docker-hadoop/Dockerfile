@@ -10,7 +10,9 @@ RUN mkdir -p /opt/hoult/servers && \
     mkdir -p /opt/hoult/software && \
     wget https://mirrors.tuna.tsinghua.edu.cn/apache/hadoop/common/hadoop-2.9.2/hadoop-2.9.2.tar.gz && \
     mv hadoop-2.9.2.tar.gz /opt/hoult/software/ && \
-    tar -zvxf /opt/hoult/software/hadoop-2.9.2.tar.gz -C /opt/hoult/servers
+    tar -zvxf /opt/hoult/software/hadoop-2.9.2.tar.gz -C /opt/hoult/servers && \
+    chown -R root:root /opt/hoult/servers/hadoop-2.9.2 && \
+    chmod -R 777 /opt/hoult/servers/hadoop-2.9.2
 
 ENV HADOOP_HOME /opt/hoult/servers/hadoop-2.9.2
 ENV HADOOP_PREFIX /opt/hoult/servers/hadoop-2.9.2

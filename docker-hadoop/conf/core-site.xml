@@ -1,4 +1,4 @@
-<configuration>        
+<configuration>
     <property>
         <name>fs.default.name</name>
         <value>hdfs://linux121:9000</value>
