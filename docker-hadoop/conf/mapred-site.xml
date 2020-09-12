@@ -20,15 +20,15 @@
         <name>mapreduce.framework.name</name>
         <value>yarn</value>
     </property>
-<!--<property>-->
-<!--<name>mapreduce.jobhistory.address</name>-->
-<!--<value>0.0.0.0:10020</value> -->
-<!--</property>-->
-
-<!--<property>-->
-<!--<name>mapreduce.jobhistory.webapp.address</name>-->
-<!--<value>0.0.0.0:19888</value> -->
-<!--</property>-->
+    <property>
+        <name>mapreduce.jobhistory.address</name>
+        <value>linux121:10020</value>
+    </property>
+    <!-- 历史服务器web端地址 -->
+    <property>
+        <name>mapreduce.jobhistory.webapp.address</name>
+        <value>linux121:19888</value>
+    </property>
 
 <!--<property>-->
 <!--<name>mapreduce.framework.name</name>-->

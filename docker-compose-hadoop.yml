@@ -1,35 +1,43 @@
 version: '2'
 services:
   linux121:
-    image: hoult/docker-hadoop:2.7.7-jdk8
+    image: hoult/docker-hadoop:2.9.2
     container_name: linux121
     working_dir: /opt/hoult/servers
+    hostname: linux121
     volumes:
       - ./docker-hadoop/conf:/opt/hoult/servers/hadoop-2.9.2/etc/hadoop
     networks:
       zoo:
         ipv4_address: 172.18.0.2
+    ports:
+      - "50070:50070"
+      - "9000:9000"
+      - "10020:10020"
+      - "19888:19888"
   linux122:
-    image: hoult/docker-hadoop:2.7.7-jdk8
+    image: hoult/docker-hadoop:2.9.2
     working_dir: /opt/hoult/servers
     container_name: linux122
+    hostname: linux122
     volumes:
       - ./docker-hadoop/conf:/opt/hoult/servers/hadoop-2.9.2/etc/hadoop
     networks:
       zoo:
         ipv4_address: 172.18.0.3
+
   linux123:
-    image: hoult/docker-hadoop:2.7.7-jdk8
+    image: hoult/docker-hadoop:2.9.2
     working_dir: /opt/hoult/servers
     container_name: linux123
+    hostname: linux123
     volumes:
       - ./docker-hadoop/conf:/opt/hoult/servers/hadoop-2.9.2/etc/hadoop
     networks:
       zoo:
         ipv4_address: 172.18.0.4
     ports:
-      - "50070:50070"
-      - "8088:8088"
+      - "50090:50090"
 
 networks:
   zoo:

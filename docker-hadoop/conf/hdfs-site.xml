@@ -23,7 +23,7 @@
     <name>dfs.replication</name>
     <value>3</value>
 </property>
- 
+
 <!--<property>-->
 <!--<name>dfs.permission</name>-->
 <!--<value>false</value>-->
