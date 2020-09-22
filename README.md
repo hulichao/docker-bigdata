@@ -49,3 +49,4 @@ metastore服务默认关闭，启动任意一个镜像都需要先format和启�
 1. spark-sql还用不了
 2. hive 默认文件file改为集群
 3. elasticsearch 单机模式ok,集群模式还有待修复
+4. 一键扩容hadoop容器

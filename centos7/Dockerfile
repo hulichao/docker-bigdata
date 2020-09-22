@@ -13,7 +13,7 @@ RUN rpm --import /etc/pki/rpm-gpg/RPM*
 
 RUN \
     yum -y install \
-        openssh openssh-server openssh-clients \
+        openssh openssh-server openssh-clients openssl-devel \
         sudo passwd wget &&\
         sudo yum -y install rsync &&\
         yum clean all
