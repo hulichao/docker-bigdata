@@ -1,20 +1,30 @@
-hadoop-mysql:
-  #构建mysql镜像
-  image: hoult/mysql:5.7
-  container_name: hadoop-mysql # 容器名
-  command: --default-authentication-plugin=mysql_native_password --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
-  restart: always
-  environment:
-    MYSQL_ROOT_PASSWORD: 123456 #root管理员用户密码
-    MYSQL_USER: bigdata   #创建bigdata用户
-    MYSQL_PASSWORD: bigdata  #设置bigdata用户的密码
-  net: zoo
-  ports:
-    - '3306:3306'  #host物理直接映射端口为6606
-  volumes:
-    #mysql数据库挂载到host物理机目录
-    - "~/DockData/mysql/data/db:/var/lib/mysql"
-    #容器的配置目录挂载到host物理机目录
-    - "~/DockData/mysql/data/conf:/etc/mysql/conf.d"
-    #容器的日志目录挂载到host物理机日志目录
-    - "~/DockData/mysql/logs:/logs"
+version: '2'
+services:
+  hadoop-mysql:
+    #构建mysql镜像
+    image: hoult/mysql:5.7
+    container_name: hadoop-mysql # 容器名
+    command: --default-authentication-plugin=mysql_native_password --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: 123456 #root管理员用户密码
+      MYSQL_USER: bigdata   #创建bigdata用户
+      MYSQL_PASSWORD: 123456  #设置bigdata用户的密码
+    networks:
+      zoo:
+        ipv4_address: 172.18.0.5
+    ports:
+      - '3306:3306'  #host物理直接映射端口为6606
+    volumes:
+      #mysql数据库挂载到host物理机目录
+      - "~/DockData/mysql/data/db:/var/lib/mysql"
+      #容器的配置目录挂载到host物理机目录
+      - "~/DockData/mysql/data/conf:/etc/mysql/conf.d"
+      #容器的日志目录挂载到host物理机日志目录
+      - "~/DockData/mysql/logs:/logs"
+networks:
+  zoo:
+    ipam:
+      config:
+        - subnet: 172.18.0.0/16
+          gateway: 172.18.0.1
