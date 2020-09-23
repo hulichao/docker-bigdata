@@ -25,6 +25,8 @@
 
 **镜像继承关系图：**
 
+其中github的分支和hub.docker 的镜像名和继承关系一致。github分支代码更新后，自动持续继承到hub镜像库。
+
 ```mermaid
 graph TD 
    hoult/centos7:jdk8-ssh --> hoult/docker-hadoop:2.7.7-jdk8
