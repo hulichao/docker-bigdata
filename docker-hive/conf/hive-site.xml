@@ -284,9 +284,11 @@
       If not set, defaults to the codec extension for text files (e.g. ".gz"), or no extension otherwise.
     </description>
   </property>
+
+<!--  操作小规模数据时候使用本地模式-->
   <property>
     <name>hive.exec.mode.local.auto</name>
-    <value>false</value>
+    <value>true</value>
     <description>Let Hive determine whether to run in local mode automatically</description>
   </property>
   <property>
@@ -328,6 +330,7 @@
     <value>org.apache.hadoop.hive.shims.HiveHarFileSystem</value>
     <description>The implementation for accessing Hadoop Archives. Note that this won't be applicable to Hadoop versions less than 0.20</description>
   </property>
+<!--  数据存储位置-->
   <property>
     <name>hive.metastore.warehouse.dir</name>
     <value>/user/hive/warehouse</value>
@@ -374,9 +377,11 @@
     <value>true</value>
     <description>Set this to true if multiple threads access metastore through JDO concurrently.</description>
   </property>
+
+  <!--  元数据存储位置-->
   <property>
     <name>javax.jdo.option.ConnectionURL</name>
-    <value>jdbc:mysql://hadoop-mysql:3306/hive?createDatabaseIfNotExist=true&amp;useSSL=false</value>
+    <value>jdbc:mysql://hadoop-mysql:3306/hivemetadata?createDatabaseIfNotExist=true&amp;useSSL=false</value>
     <description>JDBC connect string for a JDBC metastore</description>
   </property>
   <property>
@@ -852,9 +857,11 @@
     <value>false</value>
     <description/>
   </property>
+
+<!--  显示当前操作的数据库-->
   <property>
     <name>hive.cli.print.current.db</name>
-    <value>false</value>
+    <value>true</value>
     <description>Whether to include the current database in the Hive prompt.</description>
   </property>
   <property>
@@ -2659,9 +2666,10 @@
       set by SQL standard authorization instead of replacing it entirely.
     </description>
   </property>
+  <!--  数据表显示表头-->
   <property>
     <name>hive.cli.print.header</name>
-    <value>false</value>
+    <value>true</value>
     <description>Whether to print the names of the columns in query output.</description>
   </property>
   <property>
