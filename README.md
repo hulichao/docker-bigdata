@@ -17,7 +17,7 @@
 
 ### 3、镜像继承说明
 
-其中github的分支和hub.docker 的镜像名和继承关系一致。github分支代码更新后，自动持续继承到hub镜像库。
+其中github的分支和hub.docker 的镜像名和继承关系一致。github分支代码更新后，自动持续继承到hub镜像库。其中根部的dockerfile代码更新后，子类继承的代码需要cherry-pick相关更新
 
 ```mermaid
 graph TD 
