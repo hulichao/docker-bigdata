@@ -5,39 +5,30 @@
 ### 1、镜像环境
 
 * 系统：centos 7
-
+* jdk8
+* net-tools
+* ssh服务-启动时候自启
+* ssh免密服务
 
 ### 2、镜像描述
 
 * hoult/centos7：jdk8-ssh        openssh、java8，基础镜像
 
 
-**镜像继承关系图：**
+### 3、镜像继承说明
 
 其中github的分支和hub.docker 的镜像名和继承关系一致。github分支代码更新后，自动持续继承到hub镜像库。
 
 ```mermaid
 graph TD 
-   hoult/centos7:jdk8-ssh --> hoult/docker-hadoop:2.7.7-jdk8
-   hoult/docker-hadoop:2.7.7-jdk8 --> hoult/docker-hive:1.2.2
-   hoult/docker-hive:1.2.2 --> hoult/docker-spark:2.4.4
-   hoult/mysql:5.7
-   hoult/docker-spark-workbench:latest
-   hoult/docker-elasticsearch:6.5.4
+   官方镜像-centos:7 --> hoult/centos7:jdk8-ssh 
 ```
 
-### 3、QuickStart
-1. docker network create zoo 
-2. /usr/local/hadoop/bin/hdfs namenode -format
-3. /usr/local/hadoop/sbin/start-all.sh
-4. hive --service metastore
-5. spark-sql -Phive -Phive-thriftserver (启动spark时候的conf 里面的hive-site.xml 会覆盖hive原本的配置属性)
-
-**注意**：hoult/docker-hadoop:2.7.7-jdk8, hoult/docker-hive:1.2.2, hoult/docker-spark:2.4.4只可以按需求启动其中的一个，hoult/mysql:5.7是hive的元数据库，如果用到hive，需要先启动此镜像容器(或者后启动，重启集群)
-metastore服务默认关闭，启动任意一个镜像都需要先format和启动hadoop集群，zoo网络是整个集群的,如果有连接的问题docker network inspect zoo ，查看是否在组网中.
-
-## 待修复问题
-1. spark-sql还用不了
-2. hive 默认文件file改为集群
-3. elasticsearch 单机模式ok,集群模式还有待修复
-4. 一键扩容hadoop容器
+### 4、QuickStart
+1. 根据情况，是利用现成镜像还是重新打包
+2. 如果是要重写构建
+2.1 根据需要修改主机名和主机个数等信息（集群同步时候使用）： scripts/rsync-script（默认host: linux121-123）
+2.2 在根目录下执行 `make`命令
+3. 如果使用现成镜像来启动
+   3.1` sh run.sh`即可
+   3.2 `docker ps` 观察镜像是否正常启动
