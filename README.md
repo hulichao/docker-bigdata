@@ -6,7 +6,7 @@
 
 * 系统：centos 7
 * Java ：java8
-* Hadoop: 2.7.7
+* Hadoop: 2.9.2
 * python : 2.7.5
 * hive: 1.2.2
 * spark: 2.4.4
