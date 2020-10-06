@@ -1,27 +1,16 @@
 # docker-bigdata
->使用docker构建大数据开发环境，包括hadoop, hive,  spark, hbase, zk, es, kafka, 等.
+>使用docker构建大数据开发环境，包括centos7,hadoop,hive,spark,hbase,zk,es,kafka等.
 
 ## 镜像相关介绍
 ### 1、镜像环境
 
 * 系统：centos 7
-* Java ：java8
-* Hadoop: 2.9.2
-* python : 2.7.5
-* hive: 1.2.2
-* spark: 2.4.4
-* elasticsearch: 6.5.4
-* mysql: 5.7
+
 
 ### 2、镜像描述
 
 * hoult/centos7：jdk8-ssh        openssh、java8，基础镜像
-* hoult/docker-hadoop:2.7.7-jdk8    hadoop基础镜像
-* hoult/docker-hive:1.2.2   基于hadoop基础镜像
-* hoult/docker-spark:2.4.4  基于hive的镜像
-* hoult/mysql:5.7  mysql5.7版本
-* hoult/docker-spark-workbench spark的单机环境（仅仅为了测试环境）
-* hoult/docker-elasticsearch:6.5.4
+
 
 **镜像继承关系图：**
 
