@@ -1,2 +1,0 @@
-## Nginx https://blog.csdn.net/u013710784/article/details/78782793
-docker run --name=nginx -p 8085:80 -v ~/.nginx/default.conf:/etc/nginx/default.conf  -d nginx
