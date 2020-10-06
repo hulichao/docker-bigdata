@@ -6,6 +6,10 @@ docker build -t hoult/docker-hadoop docker-hadoop
 docker tag hoult/docker-hadoop hoult/docker-hadoop:2.9.2
 docker push hoult/docker-hadoop:2.9.2
 
+docker build -t hoult/docker-hive docker-hive
+docker tag hoult/docker-hive hoult/docker-hive:2.3.7
+docker push hoult/docker-hive:2.3.7
+
 DOCKER_NETWORK = docker-bigdata_zoo
 ENV_FILE = hadoop.env
 current_branch := $(shell git rev-parse --abbrev-ref HEAD)
