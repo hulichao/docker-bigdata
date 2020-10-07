@@ -25,6 +25,7 @@ RUN cp /root/.ssh/id_rsa.pub /root/.ssh/authorized_keys
 
 ADD scripts/rsync-script /usr/local/bin
 RUN chmod 777 /usr/local/bin/rsync-script
+RUN chmod -R 777 /opt/hoult
 
 # 设置sshd
 #RUN sshd-keygen和容器内ip免密登录
