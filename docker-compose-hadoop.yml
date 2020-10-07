@@ -1,7 +1,7 @@
 version: '2'
 services:
   linux121:
-    image: hoult/docker-hadoop:2.9.2
+    image: hoult/docker-hadoop:hadoop-2.9.2
     container_name: linux121
     working_dir: /opt/hoult/servers
     hostname: linux121
@@ -16,7 +16,7 @@ services:
       - "10020:10020"
       - "19888:19888"
   linux122:
-    image: hoult/docker-hadoop:2.9.2
+    image: hoult/docker-hadoop:hadoop-2.9.2
     working_dir: /opt/hoult/servers
     container_name: linux122
     hostname: linux122
@@ -27,7 +27,7 @@ services:
         ipv4_address: 172.18.0.3
 
   linux123:
-    image: hoult/docker-hadoop:2.9.2
+    image: hoult/docker-hadoop:hadoop-2.9.2
     working_dir: /opt/hoult/servers
     container_name: linux123
     hostname: linux123
