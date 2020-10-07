@@ -47,7 +47,7 @@
 HADOOP_HOME=/opt/hoult/servers/hadoop-2.9.2
 
 # Hive Configuration Directory can be controlled by:
-export HIVE_CONF_DIR=/opt/hoult/servers/hadoop-2.3.7/conf
+export HIVE_CONF_DIR=/opt/hoult/servers/hive-2.3.7/conf
 
 # Folder containing extra ibraries required for hive compilation/execution can be controlled by:
-export HIVE_AUX_JARS_PATH=/opt/hoult/servers/hadoop-2.3.7/conf/lib
+export HIVE_AUX_JARS_PATH=/opt/hoult/servers/hive-2.3.7/conf/lib
