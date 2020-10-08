@@ -1,13 +1,10 @@
-docker build -t hoult/centos7 centos7
-docker tag  hoult/centos7 hoult/centos7:jdk8-ssh
+docker build -t hoult/centos7:jdk8-ssh centos7
 docker push hoult/centos7:jdk8-ssh
 
-docker build -t hoult/docker-hadoop docker-hadoop
-docker tag hoult/docker-hadoop hoult/docker-hadoop:2.9.2
+docker build -t hoult/docker-hadoop:2.9.2 docker-hadoop
 docker push hoult/docker-hadoop:2.9.2
 
-docker build -t hoult/docker-hive docker-hive
-docker tag hoult/docker-hive hoult/docker-hive:2.3.7
+docker build -t hoult/docker-hive:2.3.7 docker-hive
 docker push hoult/docker-hive:2.3.7
 
 DOCKER_NETWORK = docker-bigdata_zoo

@@ -1,28 +1,52 @@
 version: '2'
 services:
-  hadoop-slave1:
+  linux122:
      image: hoult/docker-hive:2.3.7
-     container_name: hadoop-slave1
+     container_name: linux122
      working_dir: /opt/hoult/servers
      hostname: linux122
      volumes:
-       - ./docker-hadoop/conf:/usr/local/hadoop/etc/hadoop
-       - ./docker-hive/conf:/usr/local/hive/conf
+       - ./docker-hadoop/conf:/opt/hoult/servers/hadoop-2.9.2/etc/hadoop
+       - ./docker-hive/conf:/opt/hoult/servers/hive-2.3.7/conf
+     privileged: true
      networks:
        zoo:
          ipv4_address: 172.18.0.7
-  hadoop-slave2:
+  linux123:
      image: hoult/docker-hive:2.3.7
-     container_name: hadoop-slave2
+     container_name: linux123
      working_dir: /opt/hoult/servers
      hostname: linux123
      volumes:
-       - ./docker-hadoop/conf:/usr/local/hadoop/etc/hadoop
-       - ./docker-hive/conf:/usr/local/hive/conf
+       - ./docker-hadoop/conf:/opt/hoult/servers/hadoop-2.9.2/etc/hadoop
+       - ./docker-hive/conf:/opt/hoult/servers/hive-2.3.7/conf
+     privileged: true # 真正root权限
      networks:
        zoo:
          ipv4_address: 172.18.0.8
-
+  linux121:
+     image: hoult/docker-hive:2.3.7
+     container_name: linux121
+     working_dir: /opt/hoult/servers
+     hostname: linux121
+     volumes:
+       - ./docker-hadoop/conf:/opt/hoult/servers/hadoop-2.9.2/etc/hadoop
+       - ./docker-hive/conf:/opt/hoult/servers/hive-2.3.7/conf
+       - ./docker-hive/scripts:/opt/hoult/servers/scripts
+       - ~/DockData/hive/input:/input
+     privileged: true
+     networks:
+       zoo:
+         ipv4_address: 172.18.0.9
+     ports:
+       - "50070:50070"
+       - "19888:19888"
+       - "9083:9083"
+       - "8088:8088"
+     links:
+       - linux122
+       - linux123
+       - hadoop-mysql
   hadoop-mysql:
     #构建mysql镜像
     image: hoult/mysql:5.7
@@ -37,7 +61,7 @@ services:
       zoo:
         ipv4_address: 172.18.0.5
     ports:
-      - '8806:3306'  #host物理直接映射端口为6606
+      - '8806:3306'  #host物理直接映射端口为8806
     volumes:
       #mysql数据库挂载到host物理机目录
       - "~/DockData/mysql/data/db:/var/lib/mysql"
@@ -45,27 +69,6 @@ services:
       - "~/DockData/mysql/data/conf:/etc/mysql/conf.d"
       #容器的日志目录挂载到host物理机日志目录
       - "~/DockData/mysql/logs:/logs"
-  hadoop-master:
-     image: hoult/docker-hive:2.3.7
-     container_name: hadoop-master
-     working_dir: /opt/hoult/servers
-     hostname: linux121
-     volumes:
-       - ./docker-hadoop/conf:/usr/local/hadoop/etc/hadoop
-       - ./docker-hive/conf:/usr/local/hive/conf
-       - ~/DockData/hive/input:/input
-     networks:
-       zoo:
-         ipv4_address: 172.18.0.9
-     ports:
-       - "50070:50070"
-       - "9083:9083"
-       - "8088:8088"
-     links:
-       - hadoop-slave1
-       - hadoop-slave2
-       - hadoop-mysql
-
 networks:
   zoo:
     ipam:

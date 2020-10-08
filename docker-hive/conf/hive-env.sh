@@ -51,3 +51,4 @@ export HIVE_CONF_DIR=/opt/hoult/servers/hive-2.3.7/conf
 
 # Folder containing extra ibraries required for hive compilation/execution can be controlled by:
 export HIVE_AUX_JARS_PATH=/opt/hoult/servers/hive-2.3.7/lib
+
