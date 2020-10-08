@@ -8,6 +8,7 @@ services:
      volumes:
        - ./docker-hadoop/conf:/opt/hoult/servers/hadoop-2.9.2/etc/hadoop
        - ./docker-hive/conf:/opt/hoult/servers/hive-2.3.7/conf
+       - ~/DockData/hadoop/data/linux122:/opt/hoult/servers/hadoop-2.9.2/data
      privileged: true
      networks:
        zoo:
@@ -19,6 +20,7 @@ services:
      hostname: linux123
      volumes:
        - ./docker-hadoop/conf:/opt/hoult/servers/hadoop-2.9.2/etc/hadoop
+       - ~/DockData/hadoop/data/linux123:/opt/hoult/servers/hadoop-2.9.2/data
        - ./docker-hive/conf:/opt/hoult/servers/hive-2.3.7/conf
      privileged: true # 真正root权限
      networks:
@@ -33,6 +35,7 @@ services:
      working_dir: /opt/hoult/servers
      hostname: linux121
      volumes:
+       - ~/DockData/hadoop/data/linux121:/opt/hoult/servers/hadoop-2.9.2/data
        - ./docker-hadoop/conf:/opt/hoult/servers/hadoop-2.9.2/etc/hadoop
        - ./docker-hive/conf:/opt/hoult/servers/hive-2.3.7/conf
        - ./docker-hive/scripts:/opt/hoult/servers/scripts
