@@ -23,6 +23,8 @@ services:
        - ./docker-hive/conf:/opt/hoult/servers/hive-2.3.7/conf
        - ~/DockData/hadoop/data/linux122:/opt/hoult/servers/hadoop-2.9.2/data
      privileged: true # 真正root权限
+     ports:
+       - "8288:8088"
      networks:
        zoo:
          ipv4_address: 172.18.0.8
@@ -46,7 +48,6 @@ services:
        - "8071:50070"
        - "8988:19888"
        - "8183:9083"
-       - "8288:8088"
      links:
        - linux122
        - linux123
