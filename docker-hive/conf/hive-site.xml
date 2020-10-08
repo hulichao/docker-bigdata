@@ -3,7 +3,7 @@
     <!-- hive元数据的存储位置 -->
     <property>
     <name>javax.jdo.option.ConnectionURL</name>
-    <value>jdbc:mysql://linux123:3306/hivemetadata?createDatabaseIfNotExist=true&amp;useSSL=false</value>
+    <value>jdbc:mysql://hadoop-mysql:3306/hivemetadata?createDatabaseIfNotExist=true&amp;useSSL=false</value>
     <description>JDBC connect string for a JDBC
         metastore</description>
     </property>
