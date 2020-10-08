@@ -1,0 +1,77 @@
+version: '2'
+services:
+  linux122:
+     image: hoult/linux122
+     container_name: linux122
+     working_dir: /opt/hoult/servers
+     hostname: linux122
+     volumes:
+       - ./docker-hadoop/conf:/opt/hoult/servers/hadoop-2.9.2/etc/hadoop
+       - ./docker-hive/conf:/opt/hoult/servers/hive-2.3.7/conf
+     privileged: true
+     networks:
+       zoo:
+         ipv4_address: 172.18.0.7
+  linux123:
+     image: hoult/linux123
+     container_name: linux123
+     working_dir: /opt/hoult/servers
+     hostname: linux123
+     volumes:
+       - ./docker-hadoop/conf:/opt/hoult/servers/hadoop-2.9.2/etc/hadoop
+       - ./docker-hive/conf:/opt/hoult/servers/hive-2.3.7/conf
+     privileged: true # 真正root权限
+     networks:
+       zoo:
+         ipv4_address: 172.18.0.8
+  linux121:
+     image: hoult/linux121
+     container_name: linux121
+     working_dir: /opt/hoult/servers
+     hostname: linux121
+     volumes:
+       - ./docker-hadoop/conf:/opt/hoult/servers/hadoop-2.9.2/etc/hadoop
+       - ./docker-hive/conf:/opt/hoult/servers/hive-2.3.7/conf
+       - ./docker-hive/scripts:/opt/hoult/servers/scripts
+       - ~/DockData/hive/input:/input
+     privileged: true
+     networks:
+       zoo:
+         ipv4_address: 172.18.0.9
+     ports:
+       - "8071:50070"
+       - "8988:19888"
+       - "8183:9083"
+       - "8288:8088"
+     links:
+       - linux122
+       - linux123
+       - hadoop-mysql
+  hadoop-mysql:
+    #构建mysql镜像
+    image: hoult/mysql:5.7
+    container_name: hadoop-mysql # 容器名
+    command: --default-authentication-plugin=mysql_native_password --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: 123456 #root管理员用户密码
+      MYSQL_USER: bigdata   #创建bigdata用户
+      MYSQL_PASSWORD: 123456  #设置bigdata用户的密码
+    networks:
+      zoo:
+        ipv4_address: 172.18.0.5
+    ports:
+      - '8806:3306'  #host物理直接映射端口为8806
+    volumes:
+      #mysql数据库挂载到host物理机目录
+      - "~/DockData/mysql/data/db:/var/lib/mysql"
+      #容器的配置目录挂载到host物理机目录
+      - "~/DockData/mysql/data/conf:/etc/mysql/conf.d"
+      #容器的日志目录挂载到host物理机日志目录
+      - "~/DockData/mysql/logs:/logs"
+networks:
+  zoo:
+    ipam:
+      config:
+        - subnet: 172.18.0.0/16
+          gateway: 172.18.0.1
