@@ -38,16 +38,16 @@
     </property>
     <!-- 连接数据库的用户名 -->
     <property>
-    <name>javax.jdo.option.ConnectionUserName</name>
-    <value>root</value>
-    <description>username to use against metastore
+        <name>javax.jdo.option.ConnectionUserName</name>
+        <value>root</value>
+        <description>username to use against metastore
         database</description>
     </property>
     <!-- 连接数据库的口令 -->
     <property>
-    <name>javax.jdo.option.ConnectionPassword</name>
-    <value>123456</value>
-    <description>password to use against metastore
+        <name>javax.jdo.option.ConnectionPassword</name>
+        <value>123456</value>
+        <description>password to use against metastore
         database</description>
     </property>
 </configuration>
