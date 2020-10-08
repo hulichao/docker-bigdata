@@ -17,7 +17,7 @@
     <!-- 连接数据库的用户名 -->
     <property>
     <name>javax.jdo.option.ConnectionUserName</name>
-    <value>hive</value>
+    <value>root</value>
     <description>username to use against metastore
         database</description>
     </property>
