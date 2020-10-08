@@ -24,6 +24,9 @@ services:
      networks:
        zoo:
          ipv4_address: 172.18.0.8
+     ports:
+       - "8288:8088"
+
   linux121:
      image: hoult/docker-hive:2.3.7
      container_name: linux121
@@ -42,7 +45,6 @@ services:
        - "8071:50070"
        - "8988:19888"
        - "8183:9083"
-       - "8288:8088"
      links:
        - linux122
        - linux123
