@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<configuration>
+    <!-- 数据默认的存储位置(HDFS) -->
+    <property>
+        <name>hive.metastore.warehouse.dir</name>
+        <value>/user/hive/warehouse</value>
+        <description>location of default database for the warehouse</description>
+    </property>
+    <!-- 在命令行中，显示当前操作的数据库 -->
+    <property>
+        <name>hive.cli.print.current.db</name>
+        <value>true</value>
+        <description>Whether to include the current database in theHive prompt.</description>
+    </property>
+    <!-- 在命令行中，显示数据的表头 -->
+    <property>
+        <name>hive.cli.print.header</name>
+        <value>true</value>
+    </property>
+    <!-- 操作小规模数据时，使用本地模式，提高效率 -->
+    <property>
+        <name>hive.exec.mode.local.auto</name>
+        <value>true</value>
+        <description>Let Hive determine whether to run in local modeautomatically</description>
+    </property>
+
+    <!--    hive 的远程模式需要的四个参数，与本地模式二选1-->
+    <!-- hive metastore 服务地址 -->
+    <property>
+        <name>hive.metastore.uris</name>
+        <value>thrift://linux121:9083,thrift://linux123:9083</value>
+    </property>
+
+    <!--    hive 本地模式必须要的四个参数，与远程模式的参数二选1-->
+    <!--  连接url-->
+<!--    <property>-->
+<!--        <name>javax.jdo.option.ConnectionURL</name>-->
+<!--        <value>jdbc:mysql://hadoop-mysql:3306/hivemetadata?createDatabaseIfNotExist=true&amp;useSSL=false</value>-->
+<!--        <description>JDBC connect string for a JDBCmetastore</description>-->
+<!--    </property>-->
+<!--    &lt;!&ndash; 指定驱动程序 &ndash;&gt;-->
+<!--    <property>-->
+<!--        <name>javax.jdo.option.ConnectionDriverName</name>-->
+<!--        <value>com.mysql.jdbc.Driver</value>-->
+<!--        <description>Driver class name for a JDBC-->
+<!--            metastore</description>-->
+<!--    </property>-->
+<!--    &lt;!&ndash; 连接数据库的用户名 &ndash;&gt;-->
+<!--    <property>-->
+<!--        <name>javax.jdo.option.ConnectionUserName</name>-->
+<!--        <value>root</value>-->
+<!--        <description>username to use against metastore-->
+<!--        database</description>-->
+<!--    </property>-->
+<!--    &lt;!&ndash; 连接数据库的口令 &ndash;&gt;-->
+<!--    <property>-->
+<!--        <name>javax.jdo.option.ConnectionPassword</name>-->
+<!--        <value>123456</value>-->
+<!--        <description>password to use against metastore-->
+<!--        database</description>-->
+<!--    </property>-->
+</configuration>
