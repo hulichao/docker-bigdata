@@ -33,30 +33,30 @@
 
     <!--    hive 本地模式必须要的四个参数，与远程模式的参数二选1-->
     <!--  连接url-->
-<!--    <property>-->
-<!--        <name>javax.jdo.option.ConnectionURL</name>-->
-<!--        <value>jdbc:mysql://hadoop-mysql:3306/hivemetadata?createDatabaseIfNotExist=true&amp;useSSL=false</value>-->
-<!--        <description>JDBC connect string for a JDBCmetastore</description>-->
-<!--    </property>-->
-<!--    &lt;!&ndash; 指定驱动程序 &ndash;&gt;-->
-<!--    <property>-->
-<!--        <name>javax.jdo.option.ConnectionDriverName</name>-->
-<!--        <value>com.mysql.jdbc.Driver</value>-->
-<!--        <description>Driver class name for a JDBC-->
-<!--            metastore</description>-->
-<!--    </property>-->
-<!--    &lt;!&ndash; 连接数据库的用户名 &ndash;&gt;-->
-<!--    <property>-->
-<!--        <name>javax.jdo.option.ConnectionUserName</name>-->
-<!--        <value>root</value>-->
-<!--        <description>username to use against metastore-->
-<!--        database</description>-->
-<!--    </property>-->
-<!--    &lt;!&ndash; 连接数据库的口令 &ndash;&gt;-->
-<!--    <property>-->
-<!--        <name>javax.jdo.option.ConnectionPassword</name>-->
-<!--        <value>123456</value>-->
-<!--        <description>password to use against metastore-->
-<!--        database</description>-->
-<!--    </property>-->
+    <property>
+        <name>javax.jdo.option.ConnectionURL</name>
+        <value>jdbc:mysql://hadoop-mysql:3306/hivemetadata?createDatabaseIfNotExist=true&amp;useSSL=false</value>
+        <description>JDBC connect string for a JDBCmetastore</description>
+    </property>
+    <!-- 指定驱动程序 -->
+    <property>
+        <name>javax.jdo.option.ConnectionDriverName</name>
+        <value>com.mysql.jdbc.Driver</value>
+        <description>Driver class name for a JDBC
+            metastore</description>
+    </property>
+    <!-- 连接数据库的用户名 -->
+    <property>
+        <name>javax.jdo.option.ConnectionUserName</name>
+        <value>root</value>
+        <description>username to use against metastore
+        database</description>
+    </property>
+    <!-- 连接数据库的口令 -->
+    <property>
+        <name>javax.jdo.option.ConnectionPassword</name>
+        <value>123456</value>
+        <description>password to use against metastore
+        database</description>
+    </property>
 </configuration>
