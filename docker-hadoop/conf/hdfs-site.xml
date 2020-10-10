@@ -14,16 +14,20 @@
 <!--<value>file:/works/dfs/namesecondary</value>-->
 <!--</property>-->
 
-<property>
-    <name>dfs.namenode.secondary.http-address</name>
-    <value>linux123:50090</value>
-</property>
+    <property>
+        <name>dfs.namenode.secondary.http-address</name>
+        <value>linux123:50090</value>
+    </property>
 
-<property>
-    <name>dfs.replication</name>
-    <value>3</value>
-</property>
-
+    <property>
+        <name>dfs.replication</name>
+        <value>3</value>
+    </property>
+    <!-- HiveServer2 连不上10000;启用 webhdfs 服务 -->
+    <property>
+        <name>dfs.webhdfs.enabled</name>
+        <value>true</value>
+    </property>
 <!--<property>-->
 <!--<name>dfs.permission</name>-->
 <!--<value>false</value>-->

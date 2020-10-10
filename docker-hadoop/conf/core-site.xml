@@ -11,6 +11,23 @@
         <value>/opt/hoult/servers/hadoop-2.9.2/data/tmp</value>
     </property>
 
+    <!-- HiveServer2 连不上10000;hadoop为安装用户 --> <!-- root用户可以代理所有主机上的所有用户 -->
+    <property>
+        <name>hadoop.proxyuser.root.hosts</name>
+        <value>*</value>
+    </property>
+    <property>
+        <name>hadoop.proxyuser.root.groups</name>
+        <value>*</value>
+    </property>
+    <property>
+        <name>hadoop.proxyuser.hadoop.hosts</name>
+        <value>*</value>
+    </property>
+    <property>
+        <name>hadoop.proxyuser.hadoop.groups</name>
+        <value>*</value>
+    </property>
 <!--    <property>-->
 <!--        <name>fs.trash.interval</name>-->
 <!--        <value>3600</value>-->
