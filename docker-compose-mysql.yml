@@ -17,11 +17,11 @@ services:
       - '3306:3306'  #host物理直接映射端口为6606
     volumes:
       #mysql数据库挂载到host物理机目录
-      - "~/DockData/mysql/data/db:/var/lib/mysql"
-      #容器的配置目录挂载到host物理机目录
-      - "~/DockData/mysql/data/conf:/etc/mysql/conf.d"
+      - ~/DockData/mysql/data/db:/var/lib/mysql
+      # 器的配置目录挂载到host物理机目录
+      - ~/DockData/mysql/data/conf:/etc/mysql/conf.d
       #容器的日志目录挂载到host物理机日志目录
-      - "~/DockData/mysql/logs:/logs"
+      - ~/DockData/mysql/logs:/logs
 networks:
   zoo:
     ipam:
