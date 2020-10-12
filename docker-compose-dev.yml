@@ -16,6 +16,8 @@ services:
          ipv4_address: 172.18.0.7
      links:
        - hadoop-mysql
+     ports:
+       - "8819:8000"
   linux123:
      image: hoult/linux123
      container_name: linux123
