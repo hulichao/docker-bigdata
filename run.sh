@@ -15,3 +15,6 @@ docker-compose -f docker-compose-hadoop.yml up -d
 docker run -it -d --rm --name=linux121 -h linux121 --net zoo --privileged hoult/linux121
 docker run -it -d --rm --name=linux122 -h linux122 --net zoo --privileged hoult/linux122
 docker run -it -d --rm --name=linux123 -h linux123 --net zoo --privileged hoult/linux123
+
+## hue start
+build/env/bin/supervisor
