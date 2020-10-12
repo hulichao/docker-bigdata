@@ -72,6 +72,7 @@ services:
         ipv4_address: 172.18.0.5
     ports:
       - '8806:3306'  #host物理直接映射端口为8806
+    privileged: true
     volumes:
       #mysql数据库挂载到host物理机目录
       - ~/DockData/mysql/data/db:/var/lib/mysql

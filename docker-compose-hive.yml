@@ -43,6 +43,7 @@ services:
     networks:
       zoo:
         ipv4_address: 172.18.0.6
+    privileged: true
     ports:
       - '8506:3306'  #host物理直接映射端口为8806
     volumes:

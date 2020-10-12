@@ -6,6 +6,7 @@ services:
     container_name: hadoop-mysql # 容器名
     command: --default-authentication-plugin=mysql_native_password --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
     restart: always
+    privileged: true
     environment:
       MYSQL_ROOT_PASSWORD: 123456 #root管理员用户密码
       MYSQL_USER: bigdata   #创建bigdata用户
