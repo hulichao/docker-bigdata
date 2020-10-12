@@ -9,6 +9,7 @@ services:
        - ./docker-hadoop/conf:/opt/hoult/servers/hadoop-2.9.2/etc/hadoop
        - ./docker-hive/conf:/opt/hoult/servers/hive-2.3.7/conf
        - ~/DockData/hadoop/data/linux122:/opt/hoult/servers/hadoop-2.9.2/data
+       - ~/.m2:/root/.m2
      privileged: true
      networks:
        zoo:
