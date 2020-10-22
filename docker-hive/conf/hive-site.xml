@@ -26,11 +26,11 @@
 
     <!--    hive 的远程模式需要的四个参数，与本地模式二选1，连为 uris ，服务方 + 四要素-->
 
-    <!-- hive metastore 服务地址 -->
-<!--    <property>-->
-<!--        <name>hive.metastore.uris</name>-->
-<!--        <value>thrift://linux121:9083,thrift://linux123:9083</value>-->
-<!--    </property>-->
+<!--     hive metastore 服务地址 -->
+    <property>
+        <name>hive.metastore.uris</name>
+        <value>thrift://linux121:9083,thrift://linux123:9083</value>
+    </property>
 
     <!--  hive 的远程模式需要的四个参数，与本地模式二选1，连接方为 uris ，服务方 + 四要素-->
     <!--  连接url-->
