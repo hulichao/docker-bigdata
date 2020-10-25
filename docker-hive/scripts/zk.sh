@@ -8,7 +8,7 @@ hosts="linux121 linux122 linux123"
 for host in $hosts
 do
 echo ================= $host ==================
-echo ssh $host "source /etc/profile; /opt/hoult/servers/zookeeper-3.4.14/bin/zkServer.sh $1"
+echo ssh root@$host "source /etc/profile && /opt/hoult/servers/zookeeper-3.4.14/bin/zkServer.sh $1"
 
-ssh $host "source /etc/profile; /opt/hoult/servers/zookeeper-3.4.14/bin/zkServer.sh $1"
+ssh root@$host "source /etc/profile && /opt/hoult/servers/zookeeper-3.4.14/bin/zkServer.sh $1"
 done
