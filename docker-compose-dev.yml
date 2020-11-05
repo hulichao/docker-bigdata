@@ -11,6 +11,7 @@ services:
        - ~/DockData/hadoop/data/linux122:/opt/hoult/servers/hadoop-2.9.2/data
        - ~/.m2:/root/.m2
      privileged: true
+     restart: always
      networks:
        zoo:
          ipv4_address: 172.18.0.7
@@ -23,6 +24,7 @@ services:
      container_name: linux123
      working_dir: /opt/hoult/servers
      hostname: linux123
+     restart: always
      volumes:
        - ./docker-hadoop/conf:/opt/hoult/servers/hadoop-2.9.2/etc/hadoop
        - ./docker-hive/conf:/opt/hoult/servers/hive-2.3.7/conf
@@ -46,6 +48,7 @@ services:
        - ~/DockData/hadoop/input:/home/hadoop/data
        - ~/DockData/hadoop/data/linux121:/opt/hoult/servers/hadoop-2.9.2/data
      privileged: true
+     restart: always
      networks:
        zoo:
          ipv4_address: 172.18.0.9
