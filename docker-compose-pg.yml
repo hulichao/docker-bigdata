@@ -10,7 +10,7 @@ services:
       POSTGRES_DB: database
       POSTGRES_PASSWORD: 123456
     ports:
-      - "5432:5432"
+      - "8435:5432"
     restart:
       always
 volumes:
