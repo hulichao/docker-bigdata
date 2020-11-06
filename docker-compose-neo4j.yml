@@ -1,0 +1,17 @@
+version: '3'
+services:
+  mydb:
+    image: neo4j:3.4
+    container_name: neo4j
+    volumes:
+      - ~/DockData/neo4j-data:/data
+    ports:
+      - "8474:7474"
+      - "8687:7687"
+    restart:
+      always
+
+
+
+#    docker exec --interactive --tty <container> bin/cypher-shell
+# https://blog.csdn.net/Maple470/article/details/86494128
