@@ -14,7 +14,7 @@ services:
      restart: always
      networks:
        zoo:
-         ipv4_address: 172.18.0.7
+         ipv4_address: 172.19.0.7
      links:
        - hadoop-mysql
      ports:
@@ -34,7 +34,7 @@ services:
        - "8288:8088"
      networks:
        zoo:
-         ipv4_address: 172.18.0.8
+         ipv4_address: 172.19.0.8
   linux121:
      image: hoult/linux121
      container_name: linux121
@@ -51,7 +51,7 @@ services:
      restart: always
      networks:
        zoo:
-         ipv4_address: 172.18.0.9
+         ipv4_address: 172.19.0.9
      ports:
        - "8421:50070"
        - "8422:19888"
@@ -75,7 +75,7 @@ services:
       MYSQL_PASSWORD: 123456  #设置bigdata用户的密码
     networks:
       zoo:
-        ipv4_address: 172.18.0.5
+        ipv4_address: 172.19.0.5
     ports:
       - '8806:3306'  #host物理直接映射端口为8806
     privileged: true
@@ -90,5 +90,5 @@ networks:
   zoo:
     ipam:
       config:
-        - subnet: 172.18.0.0/16
-          gateway: 172.18.0.1
+        - subnet: 172.19.0.0/16
+          gateway: 172.19.0.1
