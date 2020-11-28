@@ -6,7 +6,7 @@ services:
     volumes:
       - ~/DockData/neo4j-data:/data
     ports:
-      - "8474:7474"
+      - "8436:7474"
       - "8687:7687"
     restart:
       always
