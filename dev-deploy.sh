@@ -1,4 +1,5 @@
-## endi
+git config --global user.email "jsu_hlc@163.com"
+git config --global user.name "hulichao"
 
 git add -u .
 git commit -m "update"
