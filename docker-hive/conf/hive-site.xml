@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <configuration>
+    <!-- 修改hive默认引擎为tez-->
+    <property>
+        <name>hive.execution.engine</name>
+        <value>tez</value>
+    </property>
     <!-- 数据默认的存储位置(HDFS) -->
     <property>
         <name>hive.metastore.warehouse.dir</name>

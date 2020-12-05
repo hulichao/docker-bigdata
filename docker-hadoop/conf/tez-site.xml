@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <!-- 指定在hdfs上的tez包文件 -->
+    <property>
+        <name>tez.lib.uris</name>
+        <value>hdfs://linux121:9000/user/tez/tez.tar.gz</value>
+    </property>
+</configuration>
