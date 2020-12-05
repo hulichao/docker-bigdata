@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <configuration>
+    <!--  java 内存大小-->
+    <property>
+        <name>mapred.child.java.opts</name>
+        <value>-Xmx3072m</value>
+    </property>
     <!-- 修改hive默认引擎为tez-->
     <property>
         <name>hive.execution.engine</name>
