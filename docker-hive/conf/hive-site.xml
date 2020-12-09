@@ -41,7 +41,7 @@
     <!--  连接url-->
     <property>
         <name>javax.jdo.option.ConnectionURL</name>
-        <value>jdbc:mysql://hadoop-mysql:3306/hivemetadata?createDatabaseIfNotExist=true&amp;useSSL=false</value>
+        <value>jdbc:mysql://hadoop-mysql:3306/hivemetadata?createDatabaseIfNotExist=true&amp;useSSL=false&amp;useUnicode=true&amp;characterEncoding=UTF-8</value>
         <description>JDBC connect string for a JDBCmetastore</description>
     </property>
     <!-- 指定驱动程序 -->
