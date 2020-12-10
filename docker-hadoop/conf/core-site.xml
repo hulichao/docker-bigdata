@@ -28,6 +28,14 @@
         <name>hadoop.proxyuser.hadoop.groups</name>
         <value>*</value>
     </property>
+    <property>
+        <name>hadoop.proxyuser.hue.hosts</name>
+        <value>*</value>
+    </property>
+    <property>
+        <name>hadoop.proxyuser.hue.groups</name>
+        <value>*</value>
+    </property>
 <!--    <property>-->
 <!--        <name>fs.trash.interval</name>-->
 <!--        <value>3600</value>-->

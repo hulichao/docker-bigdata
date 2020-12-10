@@ -1,5 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <configuration>
+    <!--  java 内存大小-->
+    <property>
+        <name>mapred.child.java.opts</name>
+        <value>-Xmx3072m</value>
+    </property>
+    <!-- 修改hive默认引擎为tez-->
+    <property>
+        <name>hive.execution.engine</name>
+        <value>mr</value>
+    </property>
     <!-- 数据默认的存储位置(HDFS) -->
     <property>
         <name>hive.metastore.warehouse.dir</name>
@@ -31,7 +41,7 @@
     <!--  连接url-->
     <property>
         <name>javax.jdo.option.ConnectionURL</name>
-        <value>jdbc:mysql://hadoop-mysql:3306/hivemetadata?createDatabaseIfNotExist=true&amp;useSSL=false</value>
+        <value>jdbc:mysql://hadoop-mysql:3306/hivemetadata?createDatabaseIfNotExist=true&amp;useSSL=false&amp;useUnicode=true&amp;characterEncoding=UTF-8</value>
         <description>JDBC connect string for a JDBCmetastore</description>
     </property>
     <!-- 指定驱动程序 -->
