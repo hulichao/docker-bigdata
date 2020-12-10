@@ -11,6 +11,9 @@ ssh root@linux123 "cd /opt/hoult/servers/hadoop-2.9.2/ && sbin/start-yarn.sh"
 #ssh root@linux121  "nohup /opt/hoult/servers/hive-2.3.7/bin/hive --service metastore &" && \
 #ssh root@linux123  "nohup /opt/hoult/servers/hive-2.3.7/bin/hive --service metastore &" && \
 #ssh root@linux123  "nohup /opt/hoult/servers/hive-2.3.7/bin/hiveserver2 &"
+# 启动服务端程序
+
+#ssh root@linux123  "nohup /opt/hoult/servers/hive-2.3.7/bin/hive --service metastore  &"
 
 # 启动hue
 #ssh root@linux122  "nohup /opt/hoult/servers/hue/build/env/bin/supervisor &"
