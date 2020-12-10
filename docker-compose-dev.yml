@@ -32,6 +32,7 @@ services:
      privileged: true # 真正root权限
      ports:
        - "8288:8088"
+       - "8210:10000"
      networks:
        zoo:
          ipv4_address: 172.19.0.8
