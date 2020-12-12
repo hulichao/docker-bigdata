@@ -75,3 +75,21 @@ export HADOOP_SECURE_DN_PID_DIR=${HADOOP_PID_DIR}
 
 # A string representing this instance of hadoop. $USER by default.
 export HADOOP_IDENT_STRING=$USER
+
+# Set HADOOP_HOME to point to a specific hadoop install directory
+export HADOOP_HOME=/opt/hoult/servers/hadoop-2.9.2
+
+# Hive Configuration Directory can be controlled by:
+export HIVE_CONF_DIR=/opt/hoult/servers/hive-2.3.7/conf
+
+# Folder containing extra libraries required for hive compilation/execution can be controlled by:
+export TEZ_HOME=/opt/hoult/servers/tez-0.9.2
+export TEZ_JARS=""
+for jar in `ls $TEZ_HOME |grep jar`; do
+    export TEZ_JARS=$TEZ_JARS:$TEZ_HOME/$jar
+done
+for jar in `ls $TEZ_HOME/lib`; do
+    export TEZ_JARS=$TEZ_JARS:$TEZ_HOME/lib/$jar
+done
+
+export HIVE_AUX_JARS_PATH=$TEZ_JARS
