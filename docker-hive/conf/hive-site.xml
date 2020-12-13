@@ -8,7 +8,11 @@
     <!-- 修改hive默认引擎为tez-->
     <property>
         <name>hive.execution.engine</name>
-        <value>tez</value>
+        <value>mr</value>
+    </property>
+    <property>
+        <name>hive.tez.container.size</name>
+        <value>1024</value>
     </property>
     <!-- 数据默认的存储位置(HDFS) -->
     <property>
