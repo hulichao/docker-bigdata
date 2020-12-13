@@ -5,5 +5,4 @@ ssh root@linux121 "/opt/hoult/servers/hbase-1.3.1/bin/stop-hbase.sh"
 ssh root@linux121 "/opt/hoult/servers/scripts/zk.sh stop"
 ssh root@linux121 "redis-cli shutdown"
 
-#ssh root@linux121 "/opt/hoult/servers/hive-2.3.7/bin/schematool -dbType mysql -initSchema"
 
