@@ -49,5 +49,6 @@ metastore服务默认关闭，启动任意一个镜像都需要先format和启�
 
 ## 待修复问题
 - [x] hive 默认文件file改为集群
+- [] hive on tez 暂还不支持
 - [] elasticsearch 单机模式ok,集群模式还有待修复
 - [] 一键扩容hadoop容器

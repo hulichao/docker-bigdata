@@ -7,7 +7,7 @@ services:
      hostname: linux122
      volumes:
        - ./docker-hadoop/conf:/opt/hoult/servers/hadoop-2.9.2/etc/hadoop
-       - ./docker-hive/conf:/opt/hoult/servers/hive-2.3.7/conf
+       - ./docker-hive/conf:/opt/hoult/servers/hive-2.3.7/conf/client
        - ~/DockData/hadoop/data/linux122:/opt/hoult/servers/hadoop-2.9.2/data
        - ~/.m2:/root/.m2
      privileged: true
@@ -18,7 +18,7 @@ services:
      links:
        - hadoop-mysql
      ports:
-       - "8819:8000"
+       - "8890:8000"
   linux123:
      image: hoult/linux123
      container_name: linux123
@@ -27,23 +27,22 @@ services:
      restart: always
      volumes:
        - ./docker-hadoop/conf:/opt/hoult/servers/hadoop-2.9.2/etc/hadoop
-       - ./docker-hive/conf:/opt/hoult/servers/hive-2.3.7/conf
+       - ./docker-hive/conf:/opt/hoult/servers/hive-2.3.7/conf/server/
        - ~/DockData/hadoop/data/linux123:/opt/hoult/servers/hadoop-2.9.2/data
      privileged: true # 真正root权限
      ports:
-       - "8288:8088"
        - "8210:10000"
+       - "8891:8088"
      networks:
        zoo:
-         ipv4_address: 172.19.0.8
-  linux121:
+         ipv4_address: 172.19.0.8 linux121:
      image: hoult/linux121
      container_name: linux121
      working_dir: /opt/hoult/servers
      hostname: linux121
      volumes:
        - ./docker-hadoop/conf:/opt/hoult/servers/hadoop-2.9.2/etc/hadoop
-       - ./docker-hive/conf:/opt/hoult/servers/hive-2.3.7/conf
+       - ./docker-hive/conf:/opt/hoult/servers/hive-2.3.7/conf/client
        - ./docker-hive/scripts:/opt/hoult/servers/scripts
        - ~/DockData/hive/input:/input
        - ~/DockData/hadoop/input:/home/hadoop/data
@@ -54,15 +53,15 @@ services:
        zoo:
          ipv4_address: 172.19.0.9
      ports:
-       - "8421:50070"
-       - "8422:19888"
-       - "8423:9083"
-       - "8424:2181"
-       - "8425:16010"
-       - "8429:8081"
-       - "8281:2181"
-       - "9092:9092"
-       - "8437:9090"
+       - "8892:50070"
+       - "8893:19888"
+       - "8894:9083"
+       - "8895:2181"
+       - "8896:16010"
+       - "8897:8081"
+       - "8898:2181"
+       - "9899:9092"
+       - "8900:9090"
      links:
        - linux122
        - linux123
