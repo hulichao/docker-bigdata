@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+<configuration>
+    <!-- 数据默认的存储位置(HDFS) -->
+    <property>
+        <name>hive.metastore.warehouse.dir</name>
+        <value>/user/hive/warehouse</value>
+        <description>location of default database for the warehouse</description>
+    </property>
+    <!-- 元数据不在本机-->
+    <property>
+        <name>hive.metastore.local</name>
+        <value>false</value>
+    </property>
+    <!-- 服务端通信地址、端口-->
+    <property>
+        <name>hive.metastore.uris</name>
+        <value>thrift://linux123:9083</value>
+    </property>
+</configuration>
