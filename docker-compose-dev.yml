@@ -18,7 +18,7 @@ services:
      links:
        - hadoop-mysql
      ports:
-       - "8890:8000"
+       - "8891:8000"
   linux123:
      image: hoult/linux123
      container_name: linux123
