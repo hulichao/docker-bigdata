@@ -35,7 +35,8 @@ services:
        - "8891:8088"
      networks:
        zoo:
-         ipv4_address: 172.19.0.8 linux121:
+         ipv4_address: 172.19.0.8
+ linux121:
      image: hoult/linux121
      container_name: linux121
      working_dir: /opt/hoult/servers
