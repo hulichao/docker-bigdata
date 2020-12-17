@@ -18,7 +18,7 @@ services:
      links:
        - hadoop-mysql
      ports:
-       - "8891:8000"
+       - "8895:8000"
   linux123:
      image: hoult/linux123
      container_name: linux123
@@ -33,6 +33,7 @@ services:
      ports:
        - "8210:10000"
        - "8891:8088"
+       - "8894:9083"
      networks:
        zoo:
          ipv4_address: 172.19.0.8
@@ -56,7 +57,6 @@ services:
      ports:
        - "8892:50070"
        - "8893:19888"
-       - "8894:9083"
        - "8895:2181"
        - "8896:16010"
        - "8897:8081"
