@@ -1,0 +1,103 @@
+version: '2'
+services:
+  linux122:
+     image: hoult/linux122
+     container_name: linux122
+     working_dir: /opt/hoult/servers
+     hostname: linux122
+     volumes:
+       - ./docker-hadoop/conf:/opt/hoult/servers/hadoop-2.9.2/etc/hadoop
+       - ./docker-hive/conf/client:/opt/hoult/servers/hive-2.3.7/conf
+       - ~/DockData/hadoop/data/linux122:/opt/hoult/servers/hadoop-2.9.2/data
+       - ~/.m2:/root/.m2
+     privileged: true
+     restart: always
+     networks:
+       zoo:
+         ipv4_address: 172.19.0.7
+     links:
+       - hadoop-mysql
+     ports:
+       - "50070:50070"
+       - "8000:8000"
+  linux123:
+     image: hoult/linux123
+     container_name: linux123
+     working_dir: /opt/hoult/servers
+     hostname: linux123
+     restart: always
+     volumes:
+       - ./docker-hadoop/conf:/opt/hoult/servers/hadoop-2.9.2/etc/hadoop
+       - ./docker-hive/conf/server:/opt/hoult/servers/hive-2.3.7/conf
+       - ~/DockData/hadoop/data/linux123:/opt/hoult/servers/hadoop-2.9.2/data
+     privileged: true # 真正root权限
+     ports:
+       - "50070:50070"
+       - "10000:10000"
+       - "8088:8088"
+       - "9083:9083"
+     networks:
+       zoo:
+         ipv4_address: 172.19.0.8
+  linux121:
+     image: hoult/linux121
+     container_name: linux121
+     working_dir: /opt/hoult/servers
+     hostname: linux121
+     volumes:
+       - ./docker-hadoop/conf:/opt/hoult/servers/hadoop-2.9.2/etc/hadoop
+       - ./docker-hive/conf/client:/opt/hoult/servers/hive-2.3.7/conf
+       - ./docker-hive/scripts:/opt/hoult/servers/scripts
+       - ~/DockData/hive/input:/input
+       - ~/DockData/hadoop/input:/home/hadoop/data
+       - ~/DockData/hadoop/data/linux121:/opt/hoult/servers/hadoop-2.9.2/data
+     privileged: true
+     restart: always
+     networks:
+       zoo:
+         ipv4_address: 172.19.0.9
+     ports:
+       - "50070:50070"
+       - "19888:19888"
+       - "18080:18080"
+       - "9000:9000"
+       - "2181:2181"
+       - "16010:16010"
+       - "8081:8081"
+       - "2181:2181"
+       - "9092:9092"
+       - "9090:9090"
+       - "8080:8080"
+     links:
+       - linux122
+       - linux123
+       - hadoop-mysql
+  hadoop-mysql:
+    #构建mysql镜像
+    image: hoult/mysql:5.7
+    container_name: hadoop-mysql # 容器名
+    command: --default-authentication-plugin=mysql_native_password --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: 123456 #root管理员用户密码
+      MYSQL_USER: bigdata   #创建bigdata用户
+      MYSQL_PASSWORD: 123456  #设置bigdata用户的密码
+    networks:
+      zoo:
+        ipv4_address: 172.19.0.5
+    ports:
+      - '3306:3306'  #host物理直接映射端口为8806
+    privileged: true
+    volumes:
+      #mysql数据库挂载到host物理机目录
+      - ~/DockData/mysql/data/db:/var/lib/mysql
+      # 器的配置目录挂载到host物理机目录
+      - ~/DockData/mysql/data/conf:/etc/mysql/conf.d
+      #容器的日志目录挂载到host物理机日志目录
+      - ~/DockData/mysql/logs:/logs
+networks:
+  zoo:
+    ipam:
+      config:
+        - subnet: 172.19.0.0/16
+          gateway: 172.19.0.1
