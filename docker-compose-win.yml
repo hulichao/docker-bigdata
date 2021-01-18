@@ -17,9 +17,6 @@ services:
          ipv4_address: 172.19.0.7
      links:
        - hadoop-mysql
-     ports:
-       - "50070:50070"
-       - "8000:8000"
   linux123:
      image: hoult/linux123
      container_name: linux123
@@ -31,11 +28,6 @@ services:
        - ./docker-hive/conf/server:/opt/hoult/servers/hive-2.3.7/conf
        - ~/DockData/hadoop/data/linux123:/opt/hoult/servers/hadoop-2.9.2/data
      privileged: true # 真正root权限
-     ports:
-       - "50070:50070"
-       - "10000:10000"
-       - "8088:8088"
-       - "9083:9083"
      networks:
        zoo:
          ipv4_address: 172.19.0.8
@@ -56,18 +48,6 @@ services:
      networks:
        zoo:
          ipv4_address: 172.19.0.9
-     ports:
-       - "50070:50070"
-       - "19888:19888"
-       - "18080:18080"
-       - "9000:9000"
-       - "2181:2181"
-       - "16010:16010"
-       - "8081:8081"
-       - "2181:2181"
-       - "9092:9092"
-       - "9090:9090"
-       - "8080:8080"
      links:
        - linux122
        - linux123
