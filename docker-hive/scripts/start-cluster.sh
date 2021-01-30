@@ -14,6 +14,9 @@ ssh root@linux123  "nohup /opt/hoult/servers/hive-2.3.7/bin/hiveserver2 >> /dev/
 ## hiveserver2 带日志的启动
 #./hive --service hiveserver2 --hiveconf hive.server2.thrift.port=10000 --hiveconf hive.root.logger=DEBUG,console
 # 启动hue
-ssh root@linux122  "nohup /opt/hoult/servers/hue/build/env/bin/supervisor >> /dev/null &"
+#ssh root@linux122  "nohup /opt/hoult/servers/hue/build/env/bin/supervisor >> /dev/null &"
+
+## 启动Spark相关
+sh start-spark.sh
 
 
