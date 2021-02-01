@@ -9,6 +9,7 @@ services:
        - ./docker-hadoop/conf:/opt/hoult/servers/hadoop-2.9.2/etc/hadoop
        - ./docker-hive/conf/client:/opt/hoult/servers/hive-2.3.7/conf
        - ~/DockData/hadoop/data/linux122:/opt/hoult/servers/hadoop-2.9.2/data
+       - ~/DockData/kafka/data/linux122:/opt/hoult/servers/kafka-2.12/kafka-logs
        - ~/.m2:/root/.m2
      privileged: true
      restart: always
@@ -27,6 +28,7 @@ services:
        - ./docker-hadoop/conf:/opt/hoult/servers/hadoop-2.9.2/etc/hadoop
        - ./docker-hive/conf/server:/opt/hoult/servers/hive-2.3.7/conf
        - ~/DockData/hadoop/data/linux123:/opt/hoult/servers/hadoop-2.9.2/data
+       - ~/DockData/kafka/data/linux123:/opt/hoult/servers/kafka-2.12/kafka-logs
      privileged: true # 真正root权限
      networks:
        zoo:
@@ -43,6 +45,7 @@ services:
        - ~/DockData/hive/input:/input
        - ~/DockData/hadoop/input:/home/hadoop/data
        - ~/DockData/hadoop/data/linux121:/opt/hoult/servers/hadoop-2.9.2/data
+       - ~/DockData/kafka/data/linux121:/opt/hoult/servers/kafka-2.12/kafka-logs
      privileged: true
      restart: always
      networks:
