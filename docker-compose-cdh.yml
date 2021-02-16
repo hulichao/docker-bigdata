@@ -2,25 +2,26 @@
 version: '2'
 services:
   hadoop1:
-     image: hoult/centos7:jdk8-ssh
+     image: hoult/hadoop1
      working_dir: /opt/hoult/servers
      hostname: hadoop1
+     container_name: hadoop1
      privileged: true
      restart: always
      networks:
        zoo:
          ipv4_address: 172.19.0.21
   hadoop2:
-     image: hoult/centos7:jdk8-ssh
-     working_dir: /opt/hoult/servers
+     image: hoult/hadoop2
      hostname: hadoop2
+     container_name: hadoop2
      privileged: true
      restart: always
      networks:
        zoo:
          ipv4_address: 172.19.0.22
   hadoop3:
-     image: hoult/centos7:jdk8-ssh
+     image: hoult/hadoop3
      container_name: hadoop3
      hostname: hadoop3
      privileged: true
@@ -29,7 +30,7 @@ services:
        zoo:
          ipv4_address: 172.19.0.23
   hadoop4:
-     image: hoult/centos7:jdk8-ssh
+     image: hoult/hadoop4
      container_name: hadoop4
      hostname: hadoop4
      privileged: true
@@ -38,7 +39,7 @@ services:
        zoo:
          ipv4_address: 172.19.0.24
   hadoop5:
-     image: hoult/centos7:jdk8-ssh
+     image: hoult/hadoop5
      container_name: hadoop5
      hostname: hadoop5
      privileged: true
