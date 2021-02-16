@@ -1,0 +1,55 @@
+#  hoult/centos7:jdk8-ssh 版本逐渐commit而成
+version: '2'
+services:
+  hadoop1:
+     image: hoult/centos7:jdk8-ssh
+     working_dir: /opt/hoult/servers
+     hostname: hadoop1
+     privileged: true
+     restart: always
+     networks:
+       zoo:
+         ipv4_address: 172.19.0.21
+  hadoop2:
+     image: hoult/centos7:jdk8-ssh
+     working_dir: /opt/hoult/servers
+     hostname: hadoop2
+     privileged: true
+     restart: always
+     networks:
+       zoo:
+         ipv4_address: 172.19.0.22
+  hadoop3:
+     image: hoult/centos7:jdk8-ssh
+     container_name: hadoop3
+     hostname: hadoop3
+     privileged: true
+     restart: always
+     networks:
+       zoo:
+         ipv4_address: 172.19.0.23
+  hadoop4:
+     image: hoult/centos7:jdk8-ssh
+     container_name: hadoop4
+     hostname: hadoop4
+     privileged: true
+     restart: always
+     networks:
+       zoo:
+         ipv4_address: 172.19.0.24
+  hadoop5:
+     image: hoult/centos7:jdk8-ssh
+     container_name: hadoop5
+     hostname: hadoop5
+     privileged: true
+     restart: always
+     networks:
+       zoo:
+         ipv4_address: 172.19.0.25
+
+networks:
+  zoo:
+    ipam:
+      config:
+        - subnet: 172.19.0.0/16
+          gateway: 172.19.0.1
