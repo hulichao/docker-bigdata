@@ -1,0 +1,1 @@
+ssh root@linux121  "source /etc/profile && /opt/hoult/servers/flink-1.11.1/bin/$1-cluster.sh
