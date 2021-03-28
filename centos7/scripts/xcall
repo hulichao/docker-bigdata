@@ -19,9 +19,10 @@ for (( host=121;host<124;host++ ))
 do
         echo ------------------- linux$host --------------
         echo "--> excute command \"$cmd\""
-        ssh $user@linux$host "source /etc/profile && $cmd"
+        ssh $user@linux$host "source /etc/profile && cd $(pwd) && $cmd"
 done
 
+echo `basename $0`
 echo "excute successfully !"
 
 ## set ff=unix
