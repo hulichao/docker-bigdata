@@ -1,0 +1,28 @@
+#!/bin/bash
+
+# 获取控制台指令
+
+cmd=$*
+
+# 判断指令是否为空
+if [ ! -n "$cmd" ]
+then
+        echo "command can not be null !"
+        exit
+fi
+
+# 获取当前登录用户
+user=`whoami`
+
+# 在从机执行指令,这里需要根据你具体的集群情况配置，host与具体主机名一致，同上
+for (( host=121;host<124;host++ ))
+do
+        echo ------------------- linux$host --------------
+        echo "--> excute command \"$cmd\""
+        ssh $user@linux$host "source /etc/profile && cd $(pwd) && $cmd"
+done
+
+echo `basename $0`
+echo "excute successfully !"
+
+## set ff=unix
