@@ -3,6 +3,7 @@ version: '2'
 services:
   ch01:
     image: yandex/clickhouse-server:1.1
+    container_name: ch01 # 容器名
     expose:
       - "9000"
     user: root
@@ -22,6 +23,7 @@ services:
 
   ch02:
     image: yandex/clickhouse-server:1.1
+    container_name: ch02 # 容器名
     expose:
       - "9000"
     user: root
@@ -41,6 +43,7 @@ services:
 
   ch03:
     image: yandex/clickhouse-server:1.1
+    container_name: ch03 # 容器名
     expose:
       - "9000"
     user: root
