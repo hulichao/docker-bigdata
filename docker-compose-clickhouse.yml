@@ -10,7 +10,7 @@ services:
     ports:
       - "9001:9000"
     volumes:
-      - ./docker-clickhouse/ch01/etc:/etc/clickhouse-server
+#      - ./docker-clickhouse/ch01/etc:/etc/clickhouse-server
       - ~/DockData/clickhouse/ch01/data:/var/lib/clickhouse
     networks:
       zoo:
@@ -30,7 +30,7 @@ services:
     ports:
       - "9002:9000"
     volumes:
-      - ./docker-clickhouse/ch02/etc:/etc/clickhouse-server
+#      - ./docker-clickhouse/ch02/etc:/etc/clickhouse-server
       - ~/DockData/clickhouse/ch02/data:/var/lib/clickhouse
     networks:
       zoo:
@@ -50,7 +50,7 @@ services:
     ports:
       - "9003:9000"
     volumes:
-      - ./docker-clickhouse/ch03/etc:/etc/clickhouse-server
+#      - ./docker-clickhouse/ch03/etc:/etc/clickhouse-server
       - ~/DockData/clickhouse/ch03/data:/var/lib/clickhouse
     networks:
       zoo:
