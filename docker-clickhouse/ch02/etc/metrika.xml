@@ -1,0 +1,40 @@
+<yandex>
+    <clickhouse_remote_servers>
+        <!-- 集群名 -->
+        <perftest_3shards_1replicas>
+            <!-- 分片地址 -->
+            <shard>
+                <internal_replication>true</internal_replication>
+                <replica>
+                    <host>linux121</host>
+                    <port>9000</port>
+                </replica>
+            </shard>
+            <shard>
+                <internal_replication>true</internal_replication>
+                <replica>
+                    <host>linux122</host>
+                    <port>9000</port>
+                </replica>
+            </shard>
+            <shard>
+                <internal_replication>true</internal_replication>
+                <replica>
+                    <host>linux123</host>
+                    <port>9000</port>
+                </replica>
+            </shard>
+        </perftest_3shards_1replicas>
+    </clickhouse_remote_servers>
+
+    <!-- 宏配置，用于分布式建表时做替换，每个节点配置不能相同 -->
+    <macros>
+        <shard>02</shard>
+        <replica>02</replica>
+    </macros>
+
+    <networks>
+        <ip>::/0</ip>
+    </networks>
+
+</yandex>
