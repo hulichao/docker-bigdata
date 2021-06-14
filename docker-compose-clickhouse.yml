@@ -1,7 +1,7 @@
 version: '2'
 
 services:
-  clickhouse01:
+  ch01:
     image: yandex/clickhouse-server:1.1
     expose:
       - "9000"
@@ -11,13 +11,16 @@ services:
     volumes:
       - ./docker-clickhouse/ch01/etc:/etc/clickhouse-server
       - ~/DockData/clickhouse/ch01/data:/var/lib/clickhouse
+    networks:
+      zoo:
+        ipv4_address: 172.19.0.11
     ulimits:
       nofile:
         soft: 262144
         hard: 262144
     privileged: true
 
-  clickhouse02:
+  ch02:
     image: yandex/clickhouse-server:1.1
     expose:
       - "9000"
@@ -27,13 +30,16 @@ services:
     volumes:
       - ./docker-clickhouse/ch02/etc:/etc/clickhouse-server
       - ~/DockData/clickhouse/ch02/data:/var/lib/clickhouse
+    networks:
+      zoo:
+        ipv4_address: 172.19.0.12
     ulimits:
       nofile:
         soft: 262144
         hard: 262144
     privileged: true
 
-  clickhouse03:
+  ch03:
     image: yandex/clickhouse-server:1.1
     expose:
       - "9000"
@@ -43,6 +49,9 @@ services:
     volumes:
       - ./docker-clickhouse/ch03/etc:/etc/clickhouse-server
       - ~/DockData/clickhouse/ch03/data:/var/lib/clickhouse
+    networks:
+      zoo:
+        ipv4_address: 172.19.0.13
     ulimits:
       nofile:
         soft: 262144
