@@ -6,21 +6,21 @@
             <shard>
                 <internal_replication>true</internal_replication>
                 <replica>
-                    <host>linux121</host>
+                    <host>ch01</host>
                     <port>9000</port>
                 </replica>
             </shard>
             <shard>
                 <internal_replication>true</internal_replication>
                 <replica>
-                    <host>linux122</host>
+                    <host>ch02</host>
                     <port>9000</port>
                 </replica>
             </shard>
             <shard>
                 <internal_replication>true</internal_replication>
                 <replica>
-                    <host>linux123</host>
+                    <host>ch03</host>
                     <port>9000</port>
                 </replica>
             </shard>

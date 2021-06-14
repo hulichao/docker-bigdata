@@ -180,6 +180,7 @@
 
          See https://clickhouse.yandex/docs/en/table_engines/replication/
       -->
+    <include_from>/etc/clickhouse-server/metrika.xml</include_from>
     <zookeeper incl="zookeeper-servers" optional="true" />
 
     <!-- Substitutions for parameters of replicated tables.
