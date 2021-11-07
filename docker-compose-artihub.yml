@@ -1,0 +1,21 @@
+version: "3.9"
+services:
+  app:
+    image: "tanliyuan123/artipub:1.2.0"
+    environment:
+      MONGO_HOST: "mongo"
+      # MONGO_USERNAME: root
+      # MONGO_PASSWORD: example
+      ARTIPUB_API_ADDRESS: "http://你的ip:3000" # 后端API地址，如果安装地址不在本机，请修改为协议+服务器IP地址+端口号（默认为3000）
+    ports:
+      - "8000:8000" # frontend
+      - "3000:3000" # backend
+    depends_on:
+      - mongo
+  mongo:
+    image: mongo:latest
+    restart: always
+    volumes:
+      - "~/.mongodb:/data/db"
+    ports:
+      - "27017:27017"

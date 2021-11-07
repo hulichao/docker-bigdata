@@ -1,0 +1,95 @@
+version: '2'
+services:
+  mysql:
+    #构建mysql镜像
+    image: hoult/mysql:5.7
+    container_name: mysql # 容器名
+    command: --default-authentication-plugin=mysql_native_password --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD} #root管理员用户密码
+      MYSQL_USER: ${MYSQL_USER}   #创建bigdata用户
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}  #设置bigdata用户的密码
+    networks:
+      zoo:
+        ipv4_address: 172.19.0.2
+    privileged: true
+    ports:
+      - '3306:3306'  #host物理直接映射端口为8806
+    volumes:
+      #mysql数据库挂载到host物理机目录
+      - "~/.DockData/mysql/data/db:/var/lib/mysql"
+      #容器的配置目录挂载到host物理机目录
+      - "~/.DockData/mysql/data/conf:/etc/mysql/conf.d"
+      #容器的日志目录挂载到host物理机日志目录
+      - "~/.DockData/mysql/logs:/logs"
+  redis:
+    image: redis:latest
+    container_name: redis
+    restart: always
+    ports:
+      - "6379:6379"
+    networks:
+      zoo:
+        ipv4_address: 172.19.0.3
+    volumes:
+      - ./docker-redis/redis.conf:/usr/local/etc/redis/redis.conf:rw # 手动配置文件跟着本项目
+      - ~/.DockData/redis/data:/data:rw # 数据跟着机器
+    command:
+      /bin/bash -c "redis-server /usr/local/etc/redis/redis.conf "
+
+  rabbitmq:
+    image: rabbitmq:3.8.3-management
+    container_name: rabbitmq
+    restart: always
+    ports:
+      - "15672:15672"   # web UI 管理接口
+      - "5672:5672"    # 生产者和消费者连接使用的接口
+    networks:
+      zoo:
+        ipv4_address: 172.19.0.4
+    volumes:
+      - ~/.DockData/rabbitmq/log:/var/log/rabbitmq #挂载 RabbitMQ日志
+      - ~/.DockData/rabbitmq/data:/var/lib/rabbitmq #挂载 RabbitMQ数据
+    environment:
+      - RABBITMQ_DEFAULT_USER=${RABBITMQ_DEFAULT_USER}
+      - RABBITMQ_DEFAULT_PASS=${RABBITMQ_DEFAULT_PASS}
+
+  myblog:
+    image: myblog
+    container_name: myblog
+    restart: always
+    ports:
+      - "8080:8080"   # blog 端口
+    networks:
+      zoo:
+        ipv4_address: 172.19.0.5
+    volumes:
+      - ~/.DockData/blog/upload:/usr/local/upload
+    depends_on:
+      - mysql
+      - redis
+      - rabbitmq
+
+  nginx:
+    image: nginx
+    container_name: nginx
+    restart: always
+    ports:
+      - "80:80"   # http 端口
+      - "443:443"   # https 端口
+    networks:
+      zoo:
+        ipv4_address: 172.19.0.6
+    volumes:
+      - ./docker-blog/nginx.conf:/etc/nginx/nginx.conf
+      - ~/myblog/vue:/usr/local/vue
+      - ~/.DockData/blog/upload:/usr/local/upload
+#    depends_on:
+#      - myblog
+networks:
+  zoo:
+    ipam:
+      config:
+        - subnet: 172.19.0.0/16
+          gateway: 172.19.0.1
