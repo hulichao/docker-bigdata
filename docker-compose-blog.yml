@@ -5,7 +5,7 @@ services:
     image: hoult/mysql:5.7
     container_name: mysql # 容器名
     command: --default-authentication-plugin=mysql_native_password --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
-    restart: always
+    restart: on-failure
     environment:
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD} #root管理员用户密码
       MYSQL_USER: ${MYSQL_USER}   #创建bigdata用户
@@ -26,7 +26,7 @@ services:
   redis:
     image: redis:latest
     container_name: redis
-    restart: always
+    restart: on-failure
     ports:
       - "6379:6379"
     networks:
@@ -41,7 +41,7 @@ services:
   rabbitmq:
     image: rabbitmq:3.8.3-management
     container_name: rabbitmq
-    restart: always
+    restart: on-failure
     ports:
       - "15672:15672"   # web UI 管理接口
       - "5672:5672"    # 生产者和消费者连接使用的接口
@@ -58,7 +58,7 @@ services:
   myblog:
     image: myblog
     container_name: myblog
-    restart: always
+    restart: on-failure
     ports:
       - "8080:8080"   # blog 端口
     networks:
@@ -74,7 +74,7 @@ services:
   nginx:
     image: nginx
     container_name: nginx
-    restart: always
+    restart: on-failure
     ports:
       - "80:80"   # http 端口
       - "443:443"   # https 端口
